@@ -1,5 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
 
+*{
+	box-sizing: border-box;
+}
+
+@media only screen and (max-width:800px) {
+	/* For tablets: */
+	#form, header{
+	  width: 100%;
+	  padding: 0;
+	}
+  }
+  
+@media only screen and (max-width:200px) {
+	/* For mobile phones: */
+	#form, header{
+	  width: 100%;
+	}
+}
 
 body, html{
 	height: 100%;
@@ -18,6 +36,8 @@ h1{
 	text-align: center;
 
 }
+
+
 
 /* Animation webkit */
 @-webkit-keyframes myfirst
@@ -75,6 +95,7 @@ header{
 }
 form{
 	margin: 0 auto;
+	margin-top: -25px;
 	width: 500px;
 	padding-top: 40px;
 	color: rgb(47, 107, 137);
@@ -119,6 +140,7 @@ input[type="submit"]{
 	height: 50px;
 	cursor: pointer;
 	margin-top: 30px;
+	margin-bottom: 30px;
 	font-size: 1.29em;
 	font-family: 'Sniglet', cursive;
 	-webkit-transition: background-color 0.5s;
@@ -127,8 +149,7 @@ input[type="submit"]{
 	transition: background-color 0.5s;
 }
 input[type="submit"]:hover{
-	background-color: #e58f0e;
-	
+	background-color: #e58f0e;	
 }
 label{
 	font-size: 1.5em;
@@ -195,3 +216,4 @@ img{
     margin-top: -500px;
     margin-left: 1100px;
 }
+
