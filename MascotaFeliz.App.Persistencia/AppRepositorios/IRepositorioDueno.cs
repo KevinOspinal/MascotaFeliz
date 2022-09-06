@@ -15,11 +15,12 @@ namespace MascotaFeliz.App.Persistencia
         //Funcion CRUD para llamar desde otros archivos
         
         // IEnumerable tipo de estructura de datos que sirve para almacenar elementos de tipo Dueno
-        // IEnumerable<Duenos> GetAllDuenos();
+        
+        IEnumerable<Duenos> GetAllDuenos();
         Dueno AddDueno(Dueno dueno);
-        // Dueno UpdateDueno(Dueno dueno);
+        Dueno UpdateDueno(Dueno dueno);
         void DeleteDueno(int idDueno);
         Dueno GetDueno(int idDueno);
-        // IEnumerable<Dueno> GetDuenoPorFiltro(String filtro);
+        IEnumerable<Dueno> GetDuenoPorFiltro(String filtro);
     }
 }
