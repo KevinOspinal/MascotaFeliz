@@ -15,7 +15,7 @@ namespace MascotaFeliz.App.Consola
         private static IRepositorioVeterinario _repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
         private static IRepositorioMascota _repoMascota = new RepositorioMascota(new Persistencia.AppContext());
         private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
-        private static IRepositorioVisitaPyP _repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
+        // private static IRepositorioVisitaPyP _repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {
@@ -98,23 +98,23 @@ namespace MascotaFeliz.App.Consola
         }
 
 
-        private static void AddVisitaPyP()
-        {
-            var visitaPyP = new VisitaPyP{
-                FechaVisita = new DateTime(2022,07,30),
-                Temperatura = 36.5f,
-                Peso = 15f,
-                FrecuenciaRespiratoria = 80f,
-                FrecuenciaCardiaca = 120f,
-                EstadoAnimo = "Activo",
-                // Historia = "Clinica",
-                // IdVeterinario = "Veterinario",
-                Recomendaciones = "Reposo por 7 dias"
+        // private static void AddVisitaPyP()
+        // {
+        //     var visitaPyP = new VisitaPyP{
+        //         FechaVisita = new DateTime(2022,07,30),
+        //         Temperatura = 36.5f,
+        //         Peso = 15f,
+        //         FrecuenciaRespiratoria = 80f,
+        //         FrecuenciaCardiaca = 120f,
+        //         EstadoAnimo = "Activo",
+        //         // Historia = "Clinica",
+        //         // IdVeterinario = "Veterinario",
+        //         Recomendaciones = "Reposo por 7 dias"
                 
-            };
-            //Llamemos a _repoDueno para asignarle el metodo AddDueno
-            _repoVisitaPyP.AddVisitaPyP(visitaPyP);
-        }
+        //     };
+        //     //Llamemos a _repoDueno para asignarle el metodo AddDueno
+        //     _repoVisitaPyP.AddVisitaPyP(visitaPyP);
+        // }
 
         // Metodos de Borrado
 

@@ -16,11 +16,11 @@ namespace MascotaFeliz.App.Persistencia
         
         // IEnumerable tipo de estructura de datos que sirve para almacenar elementos de tipo Dueno
         
-        IEnumerable<VisitaPyP> GetAllVisitaPyP();
-        VisitaPyP AddVisitaPyP(VisitaPyP visitaPyP);
-        VisitaPyP UpdateVisitaPyP(VisitaPyP visitaPyP);
-        void DeleteVisitaPyP(int idVisitaPyP);
-        VisitaPyP GetVisitaPyP(int idVisitaPyP);
-        IEnumerable<VisitaPyP> GetVisitaPyPPorFiltro(String filtro);
+        // IEnumerable<VisitaPyP> GetAllVisitaPyP();
+        // VisitaPyP AddVisitaPyP(VisitaPyP visitaPyP);
+        // VisitaPyP UpdateVisitaPyP(VisitaPyP visitaPyP);
+        // void DeleteVisitaPyP(int idVisitaPyP);
+        // VisitaPyP GetVisitaPyP(int idVisitaPyP);
+        // IEnumerable<VisitaPyP> GetVisitaPyPPorFiltro(String filtro);
     }
 }

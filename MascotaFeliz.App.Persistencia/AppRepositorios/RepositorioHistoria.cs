@@ -33,14 +33,14 @@ namespace MascotaFeliz.App.Persistencia
             return historiaAdicionado.Entity;
         }
 
-        public void DeleteHistoria(int idHistoria)
-        {
-            var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
-            if (historiaEncontrado == null)
-                return;
-            _appContext.Historias.Remove(historiaEncontrado);
-            _appContext.SaveChanges();
-        }
+        // public void DeleteHistoria(int idHistoria)
+        // {
+        //     var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
+        //     if (historiaEncontrado == null)
+        //         return;
+        //     _appContext.Historias.Remove(historiaEncontrado);
+        //     _appContext.SaveChanges();
+        // }
 
     //    public IEnumerable<Historia> GetAllHistorias()
     //     {
