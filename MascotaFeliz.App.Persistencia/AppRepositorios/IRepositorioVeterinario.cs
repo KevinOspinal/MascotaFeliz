@@ -1,5 +1,3 @@
-//Esto es una INTERFAS
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,13 +10,13 @@ namespace MascotaFeliz.App.Persistencia
     {
         //Teoria de interfases, describen la firma de los metodos
         //Funcion CRUD para llamar desde otros archivos
-        
         // IEnumerable tipo de estructura de datos que sirve para almacenar elementos de tipo Veterinario
-        //IEnumerable<Veterinarios> GetAllVeterinarios();
-        Veterinario AddVeterinario(Veterinario Veterinario);
-        // Veterinario UpdateVeterinario(Veterinario dueno);
+        
+        IEnumerable<Veterinario> GetAllVeterinarios();
+        Veterinario AddVeterinario(Veterinario veterinario);
+        Veterinario UpdateVeterinario(Veterinario veterinario);
         void DeleteVeterinario(int idVeterinario);
         Veterinario GetVeterinario(int idVeterinario);
-        // IEnumerable<Veterinario> GetVeterinarioPorFiltro(String filtro);
+        IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro);
     }
 }

@@ -11,16 +11,15 @@ namespace MascotaFeliz.App.Persistencia
         /// <summary>
         /// Referencia al contexto de Veterinario
         /// </summary>
-        //Atributo
+
         private readonly AppContext _appContext;
+       
         /// <summary>
         /// Metodo Constructor Utiiza 
         /// Inyeccion de dependencias para indicar el contexto a utilizar
         /// </summary>
         /// <param name="appContext"></param>//
         
-        //Cuando se llame a RepositorioVeterinario debe llamar a AppContext
-        //Es el constructor
         public RepositorioVeterinario(AppContext appContext)
         {
             _appContext = appContext;
@@ -42,23 +41,23 @@ namespace MascotaFeliz.App.Persistencia
             _appContext.SaveChanges();
         }
 
-    //    public IEnumerable<Veterinario> GetAllVeterinarios()
-    //     {
-    //         return GetAllVeterinarios_();
-    //     }
+       public IEnumerable<Veterinario> GetAllVeterinarios()
+        {
+            return GetAllVeterinarios_();
+        }
 
-    //     public IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro)
-    //     {
-    //         var veterinarios = GetAllVeterinarios(); // Obtiene todos los dueños
-    //         if (veterinarios != null)  //Si se tienen dueño
-    //         {
-    //             if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor o es diferente de String
-    //             {
-    //                 veterinarios = veterinarios.Where(s => s.Nombres.Contains(filtro));
-    //             }
-    //         }
-    //         return veterinarios;
-    //     }
+        public IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro)
+        {
+            var veterinarios = GetAllVeterinarios(); // Obtiene todos los saludos
+            if (veterinarios != null)  //Si se tienen saludos
+            {
+                if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
+                {
+                    veterinarios = veterinarios.Where(s => s.Nombres.Contains(filtro));
+                }
+            }
+            return veterinarios;
+        }
 
         public IEnumerable<Veterinario> GetAllVeterinarios_()
         {
@@ -70,19 +69,19 @@ namespace MascotaFeliz.App.Persistencia
             return _appContext.Veterinarios.FirstOrDefault(d => d.Id == idVeterinario);
         }
 
-    // public Veterinario UpdateVeterinario(Veterinario veterinario)
-    //     {
-    //         var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(d => d.Id == veterinario.Id);
-    //         if (veterinarioEncontrado != null)
-    //         {
-    //             veterinarioEncontrado.Nombres = veterinario.Nombres;
-    //             veterinarioEncontrado.Apellidos = veterinario.Apellidos;
-    //             veterinarioEncontrado.Direccion = veterinario.Direccion;
-    //             veterinarioEncontrado.Telefono = veterinario.Telefono;
-    //             veterinarioEncontrado.Correo = veterinario.Correo;
-    //             _appContext.SaveChanges();
-    //         }
-    //         return veterinarioEncontrado;
-    //     }
+        public Veterinario UpdateVeterinario(Veterinario veterinario)
+        {
+            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(d => d.Id == veterinario.Id);
+            if (veterinarioEncontrado != null)
+            {
+                veterinarioEncontrado.Nombres = veterinario.Nombres;
+                veterinarioEncontrado.Apellidos = veterinario.Apellidos;
+                veterinarioEncontrado.Direccion = veterinario.Direccion;
+                veterinarioEncontrado.Telefono = veterinario.Telefono;
+                veterinarioEncontrado.TarjetaProfesional = veterinario.TarjetaProfesional;
+                _appContext.SaveChanges();
+            }
+            return veterinarioEncontrado;
+        }     
     }
 }

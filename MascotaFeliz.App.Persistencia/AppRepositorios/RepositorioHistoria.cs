@@ -11,16 +11,15 @@ namespace MascotaFeliz.App.Persistencia
         /// <summary>
         /// Referencia al contexto de Historia
         /// </summary>
-        //Atributo
+
         private readonly AppContext _appContext;
+       
         /// <summary>
         /// Metodo Constructor Utiiza 
         /// Inyeccion de dependencias para indicar el contexto a utilizar
         /// </summary>
         /// <param name="appContext"></param>//
         
-        //Cuando se llame a RepositorioHistoria debe llamar a AppContext
-        //Es el constructor
         public RepositorioHistoria(AppContext appContext)
         {
             _appContext = appContext;
@@ -42,47 +41,47 @@ namespace MascotaFeliz.App.Persistencia
         //     _appContext.SaveChanges();
         // }
 
-    //    public IEnumerable<Historia> GetAllHistorias()
-    //     {
-    //         return GetAllHistorias_();
-    //     }
+       public IEnumerable<Historia> GetAllHistorias()
+        {
+            return GetAllHistorias_();
+        }
 
-    //     public IEnumerable<Historia> GetHistoriasPorFiltro(string filtro)
-    //     {
-    //         var historias = GetAllHistorias(); // Obtiene todos los dueños
-    //         if (historias != null)  //Si se tienen dueño
-    //         {
-    //             if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor o es diferente de String
-    //             {
-    //                 historias = historias.Where(s => s.Nombres.Contains(filtro));
-    //             }
-    //         }
-    //         return historias;
-    //     }
-
-        // public IEnumerable<Historia> GetAllHistorias_()
+        // public IEnumerable<Historia> GetHistoriasPorFiltro(string filtro)
         // {
-        //     return _appContext.Historias;
+        //     var historias = GetAllHistorias(); // Obtiene todos los saludos
+        //     if (historias != null)  //Si se tienen saludos
+        //     {
+        //         if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
+        //         {
+        //             historias = historias.Where(s => s.Nombres.Contains(filtro));
+        //         }
+        //     }
+        //     return historias;
         // }
 
-        // public Historia GetHistoria(int idHistoria)
-        // {
-        //     return _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
-        // }
+        public IEnumerable<Historia> GetAllHistorias_()
+        {
+            return _appContext.Historias;
+        }
 
-    // public Historia UpdateHistoria(Historia historia)
-    //     {
-    //         var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == historia.Id);
-    //         if (historiaEncontrado != null)
-    //         {
-    //             historiaEncontrado.Nombres = historia.Nombres;
-    //             historiaEncontrado.Apellidos = historia.Apellidos;
-    //             historiaEncontrado.Direccion = historia.Direccion;
-    //             historiaEncontrado.Telefono = historia.Telefono;
-    //             historiaEncontrado.Correo = historia.Correo;
-    //             _appContext.SaveChanges();
-    //         }
-    //         return historiaEncontrado;
-    //     }
+        public Historia GetHistoria(int idHistoria)
+        {
+            return _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
+        }
+
+        // public Historia UpdateHistoria(Historia historia)
+        // {
+        //     var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == historia.Id);
+        //     if (historiaEncontrado != null)
+        //     {
+        //         historiaEncontrado.Nombres = historia.Nombres;
+        //         historiaEncontrado.Apellidos = historia.Apellidos;
+        //         historiaEncontrado.Direccion = historia.Direccion;
+        //         historiaEncontrado.Telefono = historia.Telefono;
+        //         historiaEncontrado.Correo = historia.Correo;
+        //         _appContext.SaveChanges();
+        //     }
+        //     return historiaEncontrado;
+        // }     
     }
 }

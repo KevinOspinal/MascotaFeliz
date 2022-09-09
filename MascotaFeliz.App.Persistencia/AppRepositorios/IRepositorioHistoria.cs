@@ -15,11 +15,11 @@ namespace MascotaFeliz.App.Persistencia
         //Funcion CRUD para llamar desde otros archivos
         
         // IEnumerable tipo de estructura de datos que sirve para almacenar elementos de tipo Historia
-        // IEnumerable<Historias> GetAllHistorias();
+        IEnumerable<Historia> GetAllHistorias();
         Historia AddHistoria(Historia historia);
         // Historia UpdateHistoria(Historia historia);
         // void DeleteHistoria(int idHistoria);
-        // Historia GetHistoria(int idHistoria);
+        Historia GetHistoria(int idHistoria);
         // IEnumerable<Historia> GetHistoriaPorFiltro(String filtro);
     }
 }
