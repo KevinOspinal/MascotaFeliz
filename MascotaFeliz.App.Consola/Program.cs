@@ -23,7 +23,7 @@ namespace MascotaFeliz.App.Consola
 
             // AddDuenos();
             // AddVeterinario();
-            AddMascota();
+            // AddMascota();
             // AddHistoria();
             // AddVisitaPyP();
 
@@ -32,13 +32,14 @@ namespace MascotaFeliz.App.Consola
             // DeleteHistoria(2);
             // DeleteVisitaPyP(2);
 
-            // BuscarDueno(2);
+            // BuscarDueno(1);
             // BuscarVeterinario(6);
             // BuscarHistoria(2);
+            // ListarDuenos();
 
 
 
-            // GetAllDuenos();
+            GetAllDuenos();
             
             //ListarDuenosFiltro();
             //ListarVeterinariosFiltro();
@@ -50,11 +51,12 @@ namespace MascotaFeliz.App.Consola
         private static void AddDuenos()
         {
             var dueno = new Dueno{
-                Nombres = "Nathalia ",
-                Apellidos = "Valenzuela",
-                Direccion ="Mijitayo",
-                Telefono = "3226120393",
-                Correo = "Valenzuela@gmail.com"
+                Cedula = "1084227555",
+                Nombres = "Juanito",
+                Apellidos = "Alimaña",
+                Direccion ="Pasto",
+                Telefono = "31653184662",
+                Correo = "AlimañaJuanito@gmail.com"
             };
             //Llamemos a _repoDueno para asignarle el metodo AddDueno
             _repoDueno.AddDueno(dueno);
@@ -63,11 +65,12 @@ namespace MascotaFeliz.App.Consola
         private static void AddVeterinario()
         {
             var veterinario = new Veterinario{
-                Nombres = "Jorge ",
-                Apellidos = "Riascos",
-                Direccion ="Palermo",
-                Telefono = "3155177489",
-                TarjetaProfesional = "MP-521456"
+                Cedula = "1085325699",
+                Nombres = "Christian",
+                Apellidos = "Calvache",
+                Direccion ="Chambu",
+                Telefono = "3177153575",
+                TarjetaProfesional = "MP-365426"
             };
             //Llamemos a _repoDueno para asignarle el metodo AddDueno
             _repoVeterinario.AddVeterinario(veterinario);
@@ -158,6 +161,15 @@ namespace MascotaFeliz.App.Consola
         {
             var veterinario = _repoVeterinario.GetVeterinario(idVeterinario);
             Console.WriteLine(veterinario.Nombres+" "+veterinario.Apellidos);
+        }
+
+        public static void GetAllDuenos()
+        {
+            var duenos = _repoDueno.GetAllDuenos();
+            foreach (Dueno d in duenos)
+            {
+                Console.WriteLine(d.Nombres + " " + d.Apellidos); 
+            }
         }
 
         // private static void BuscarHistoria(int idHistoria)

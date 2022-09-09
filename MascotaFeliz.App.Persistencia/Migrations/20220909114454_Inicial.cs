@@ -11,13 +11,13 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                 name: "Historias",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FechaInicial = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Historias", x => x.id);
+                    table.PrimaryKey("PK_Historias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -26,6 +26,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Cedula = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nombres = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -51,18 +52,18 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     FrecuenciaRespiratoria = table.Column<float>(type: "real", nullable: false),
                     FrecuenciaCardiaca = table.Column<float>(type: "real", nullable: false),
                     EstadoAnimo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Historiaid = table.Column<int>(type: "int", nullable: true),
-                    IdVeterinario = table.Column<int>(type: "int", nullable: false),
-                    Recomendaciones = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CedulaVeterinario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Recomendaciones = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HistoriaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_VisitasPyP", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_VisitasPyP_Historias_Historiaid",
-                        column: x => x.Historiaid,
+                        name: "FK_VisitasPyP_Historias_HistoriaId",
+                        column: x => x.HistoriaId,
                         principalTable: "Historias",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -78,16 +79,16 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     Raza = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DuenoId = table.Column<int>(type: "int", nullable: true),
                     VeterinarioId = table.Column<int>(type: "int", nullable: true),
-                    Historiaid = table.Column<int>(type: "int", nullable: true)
+                    HistoriaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Mascotas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Mascotas_Historias_Historiaid",
-                        column: x => x.Historiaid,
+                        name: "FK_Mascotas_Historias_HistoriaId",
+                        column: x => x.HistoriaId,
                         principalTable: "Historias",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Mascotas_Personas_DuenoId",
@@ -109,9 +110,9 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                 column: "DuenoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Mascotas_Historiaid",
+                name: "IX_Mascotas_HistoriaId",
                 table: "Mascotas",
-                column: "Historiaid");
+                column: "HistoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Mascotas_VeterinarioId",
@@ -119,9 +120,9 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                 column: "VeterinarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VisitasPyP_Historiaid",
+                name: "IX_VisitasPyP_HistoriaId",
                 table: "VisitasPyP",
-                column: "Historiaid");
+                column: "HistoriaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -10,9 +10,7 @@ namespace MascotaFeliz.App.Dominio
         public float FrecuenciaRespiratoria{get;set;}
         public float FrecuenciaCardiaca{get;set;}
         public string EstadoAnimo {get;set;}
-        //Relaciones entre VisitaPyP y la historia clinica
-        public Historia Historia {get;set;}
-        public int IdVeterinario {get;set;}
+        public string CedulaVeterinario {get;set;}
         public string Recomendaciones {get;set;}
     }
 }

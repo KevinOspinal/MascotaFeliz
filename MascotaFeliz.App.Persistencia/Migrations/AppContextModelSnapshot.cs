@@ -21,7 +21,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -29,7 +29,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<DateTime>("FechaInicial")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Historias");
                 });
@@ -50,7 +50,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<string>("Especie")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Historiaid")
+                    b.Property<int?>("HistoriaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -66,7 +66,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
                     b.HasIndex("DuenoId");
 
-                    b.HasIndex("Historiaid");
+                    b.HasIndex("HistoriaId");
 
                     b.HasIndex("VeterinarioId");
 
@@ -81,6 +81,9 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Apellidos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cedula")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
@@ -110,6 +113,9 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("CedulaVeterinario")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EstadoAnimo")
                         .HasColumnType("nvarchar(max)");
 
@@ -122,10 +128,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<float>("FrecuenciaRespiratoria")
                         .HasColumnType("real");
 
-                    b.Property<int?>("Historiaid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdVeterinario")
+                    b.Property<int?>("HistoriaId")
                         .HasColumnType("int");
 
                     b.Property<float>("Peso")
@@ -139,7 +142,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Historiaid");
+                    b.HasIndex("HistoriaId");
 
                     b.ToTable("VisitasPyP");
                 });
@@ -172,7 +175,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
                     b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
                         .WithMany()
-                        .HasForeignKey("Historiaid");
+                        .HasForeignKey("HistoriaId");
 
                     b.HasOne("MascotaFeliz.App.Dominio.Veterinario", "Veterinario")
                         .WithMany()
@@ -187,11 +190,9 @@ namespace MascotaFeliz.App.Persistencia.Migrations
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.VisitaPyP", b =>
                 {
-                    b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
+                    b.HasOne("MascotaFeliz.App.Dominio.Historia", null)
                         .WithMany("VisitasPyP")
-                        .HasForeignKey("Historiaid");
-
-                    b.Navigation("Historia");
+                        .HasForeignKey("HistoriaId");
                 });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
