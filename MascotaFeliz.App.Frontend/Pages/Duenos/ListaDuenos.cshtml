@@ -2,3 +2,24 @@
 @model MascotaFeliz.App.Frontend.Pages.ListaDuenosModel
 @{
 }
+
+<h1>Lista de Propietarios</h1>
+<table class="table table-primary table-striped mt-4">
+        <tr>
+            <!--Nombre columnas-->
+            <th>Cedula</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+        </tr>
+    @foreach(var dueno in Model.listaDuenos)
+    {
+
+        <tr>
+            <!--Nombre columnas-->
+            <td>@dueno.Cedula</td>
+            <td>@dueno.Nombres</td>
+            <td>@dueno.Apellidos</td>
+        </tr>
+    }
+        
+</table>

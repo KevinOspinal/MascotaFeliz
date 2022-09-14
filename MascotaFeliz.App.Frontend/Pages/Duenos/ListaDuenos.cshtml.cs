@@ -11,8 +11,16 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class ListaDuenosModel : PageModel
     {
+        //Constructor
+        private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
+        //Metodo Get Set
+        public IEnumerable<Dueno> listaDuenos {get;set;}
+    
+        //LLama al metodo
         public void OnGet()
         {
+            listaDuenos = _repoDueno.GetAllDuenos();
         }
     }
+        
 }
