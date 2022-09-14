@@ -23,7 +23,7 @@ namespace MascotaFeliz.App.Consola
 
             // AddDuenos();
             // AddVeterinario();
-            // AddMascota();
+            AddMascota();
             // AddHistoria();
             // AddVisitaPyP();
 
@@ -38,7 +38,7 @@ namespace MascotaFeliz.App.Consola
             // BuscarHistoria(2);
             
 
-            GetAllDuenos();
+            // GetAllDuenos();
             // GetAllVeterinarios();
             // GetAllMascotas();
             // DeleteHistoria();
@@ -83,8 +83,8 @@ namespace MascotaFeliz.App.Consola
         private static void AddMascota()
         {
             var mascota = new Mascota{
-                Nombre = "Mateo",
-                Color = "Negro",
+                Nombre = "Firulays",
+                Color = "Cafe",
                 Especie ="Macho",
                 Raza = "Ladrador",
                 // Duenio = 2,
