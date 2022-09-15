@@ -24,8 +24,10 @@ namespace MascotaFeliz.App.Consola
             // AddDueno();
             // AddVeterinario();
             // AddMascota();
-            AddHistoria();
+            // AddHistoria();
             // AddVisitaPyP();
+
+            // Falta VisitaPYP
 
             // DeleteDueno(5);
             // DeleteVeterinario(2);
