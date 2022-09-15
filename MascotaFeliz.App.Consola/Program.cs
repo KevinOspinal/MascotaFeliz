@@ -21,10 +21,10 @@ namespace MascotaFeliz.App.Consola
         {
             Console.WriteLine("Proceso Finalizado con Exito ;)");
 
-            // AddDuenos();
+            // AddDueno();
             // AddVeterinario();
-            AddMascota();
-            // AddHistoria();
+            // AddMascota();
+            AddHistoria();
             // AddVisitaPyP();
 
             // DeleteDueno(5);
@@ -52,7 +52,7 @@ namespace MascotaFeliz.App.Consola
 
         //Inicio de metodos de Adicion
 
-        private static void AddDuenos()
+        private static void AddDueno()
         {
             var dueno = new Dueno{
                 Cedula = "1084227555",

@@ -13,7 +13,7 @@ namespace MascotaFeliz.App.Frontend.Pages
     {
         //Constructor
         private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
-        //Metodo Get Set
+        //Se crea una propiedad
         public IEnumerable<Dueno> listaDuenos {get;set;}
     
         //LLama al metodo
