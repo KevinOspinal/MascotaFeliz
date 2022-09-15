@@ -17,7 +17,7 @@ namespace MascotaFeliz.App.Persistencia
         // IEnumerable tipo de estructura de datos que sirve para almacenar elementos de tipo Mascota
         IEnumerable<Mascota> GetAllMascotas();
         Mascota AddMascota(Mascota mascota);
-        // Mascota UpdateMascota(Mascota mascota);
+        Mascota UpdateMascota(Mascota mascota);
         void DeleteMascota(int idMascota);
         Mascota GetMascota(int idMascota);
         IEnumerable<Mascota> GetMascotaPorFiltro(String filtro);

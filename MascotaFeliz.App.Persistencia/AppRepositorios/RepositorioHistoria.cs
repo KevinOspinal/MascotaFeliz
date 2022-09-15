@@ -32,14 +32,14 @@ namespace MascotaFeliz.App.Persistencia
             return historiaAdicionado.Entity;
         }
 
-        // public void DeleteHistoria(int idHistoria)
-        // {
-        //     var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
-        //     if (historiaEncontrado == null)
-        //         return;
-        //     _appContext.Historias.Remove(historiaEncontrado);
-        //     _appContext.SaveChanges();
-        // }
+        public void DeleteHistoria(int idHistoria)
+        {
+            var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
+            if (historiaEncontrado == null)
+                return;
+            _appContext.Historias.Remove(historiaEncontrado);
+            _appContext.SaveChanges();
+        }
 
        public IEnumerable<Historia> GetAllHistorias()
         {
@@ -53,7 +53,7 @@ namespace MascotaFeliz.App.Persistencia
         //     {
         //         if (!String.IsNullOrEmpty(filtro)) // Si el filtro tiene algun valor
         //         {
-        //             historias = historias.Where(s => s.Nombres.Contains(filtro));
+        //             historias = historias.Where(s => s.Id.Contains(filtro));
         //         }
         //     }
         //     return historias;
@@ -69,19 +69,15 @@ namespace MascotaFeliz.App.Persistencia
             return _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
         }
 
-        // public Historia UpdateHistoria(Historia historia)
-        // {
-        //     var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == historia.Id);
-        //     if (historiaEncontrado != null)
-        //     {
-        //         historiaEncontrado.Nombres = historia.Nombres;
-        //         historiaEncontrado.Apellidos = historia.Apellidos;
-        //         historiaEncontrado.Direccion = historia.Direccion;
-        //         historiaEncontrado.Telefono = historia.Telefono;
-        //         historiaEncontrado.Correo = historia.Correo;
-        //         _appContext.SaveChanges();
-        //     }
-        //     return historiaEncontrado;
-        // }     
+        public Historia UpdateHistoria(Historia historia)
+        {
+            var historiaEncontrado = _appContext.Historias.FirstOrDefault(d => d.Id == historia.Id);
+            if (historiaEncontrado != null)
+            {
+                historiaEncontrado.FechaInicial = historia.FechaInicial;
+                _appContext.SaveChanges();
+            }
+            return historiaEncontrado;
+        }    
     }
 }

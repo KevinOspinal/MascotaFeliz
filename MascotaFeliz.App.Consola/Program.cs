@@ -15,7 +15,7 @@ namespace MascotaFeliz.App.Consola
         private static IRepositorioVeterinario _repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
         private static IRepositorioMascota _repoMascota = new RepositorioMascota(new Persistencia.AppContext());
         private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
-        // private static IRepositorioVisitaPyP _repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
+        private static IRepositorioVisitaPyP _repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {
@@ -25,25 +25,26 @@ namespace MascotaFeliz.App.Consola
             // AddVeterinario();
             // AddMascota();
             // AddHistoria();
-            // AddVisitaPyP();
+            AddVisitaPyP();
 
-            // Falta VisitaPYP
-
+            
             // DeleteDueno(5);
             // DeleteVeterinario(2);
-            // DeleteHistoria(2);
-            // DeleteVisitaPyP(2);
+            // DeleteHistoria(4);
+            // DeleteMascota(2);
+            // DeleteVisitaPyP(1);
 
             // BuscarDueno(1);
             // BuscarMascota(1);
             // BuscarVeterinario(3);
             // BuscarHistoria(2);
+            // BuscarVisitasPyP(2);
             
 
             // GetAllDuenos();
             // GetAllVeterinarios();
             // GetAllMascotas();
-            // DeleteHistoria();
+            // GetAllVisitasPyP();
             
             // GetDuenosPorFiltro();
             // GetVeterinariosPorFiltro();
@@ -107,23 +108,23 @@ namespace MascotaFeliz.App.Consola
         }
 
 
-        // private static void AddVisitaPyP()
-        // {
-        //     var visitaPyP = new VisitaPyP{
-        //         FechaVisita = new DateTime(2022,07,30),
-        //         Temperatura = 36.5f,
-        //         Peso = 15f,
-        //         FrecuenciaRespiratoria = 80f,
-        //         FrecuenciaCardiaca = 120f,
-        //         EstadoAnimo = "Activo",
-        //         // Historia = "Clinica",
-        //         // IdVeterinario = "Veterinario",
-        //         Recomendaciones = "Reposo por 7 dias"
+        private static void AddVisitaPyP()
+        {
+            var visitaPyP = new VisitaPyP{
+                FechaVisita = new DateTime(2022,07,30),
+                Temperatura = 36.5f,
+                Peso = 15f,
+                FrecuenciaRespiratoria = 80f,
+                FrecuenciaCardiaca = 120f,
+                EstadoAnimo = "Activo",
+                // Historia = "Clinica",
+                // IdVeterinario = "Veterinario",
+                Recomendaciones = "Reposo por 7 dias"
                 
-        //     };
-        //     //Llamemos a _repoDueno para asignarle el metodo AddDueno
-        //     _repoVisitaPyP.AddVisitaPyP(visitaPyP);
-        // }
+            };
+            //Llamemos a _repoDueno para asignarle el metodo AddDueno
+            _repoVisitaPyP.AddVisitaPyP(visitaPyP);
+        }
 
         // Metodos de Borrado
 
@@ -141,19 +142,26 @@ namespace MascotaFeliz.App.Consola
             _repoVeterinario.DeleteVeterinario(idVeterinario);
         }
 
-        // private static void DeleteHistoria(int idHistoria)
-        // {
-        //     var historia = _repoHistoria.GetHistoria(idHistoria);
-        //     Console.WriteLine("Se a borro al Id "+historia.Id);
-        //     _repoHistoria.DeleteHistoria(idHistoria);
-        // }
+        private static void DeleteHistoria(int idHistoria)
+        {
+            var historia = _repoHistoria.GetHistoria(idHistoria);
+            Console.WriteLine("Se a borro al Id "+historia.Id);
+            _repoHistoria.DeleteHistoria(idHistoria);
+        }
 
-        // private static void DeleteVisitaPyP(int idVisitaPyP)
-        // {
-        //     var visitaPyP = _repoVisitaPyP.GetVisitaPyP(idVisitaPyP);
-        //     // Console.WriteLine("Se a borro a "+veterinario.Nombres+" "+veterinario.Apellidos);
-        //     _repoVisitaPyP.DeleteVisitaPyP(idVisitaPyP);
-        // }
+        private static void DeleteMascota(int idMascota)
+        {
+            var mascota = _repoMascota.GetMascota(idMascota);
+            Console.WriteLine("Se a borro al Id "+mascota.Id + mascota.Nombre);
+            _repoMascota.DeleteMascota(idMascota);
+        }
+
+        private static void DeleteVisitaPyP(int idVisitaPyP)
+        {
+            var visitaPyP = _repoVisitaPyP.GetVisitasPyP(idVisitaPyP);
+            Console.WriteLine("Se a borro a "+visitaPyP.Id+" "+visitaPyP.FechaVisita);
+            _repoVisitaPyP.DeleteVisitaPyP(idVisitaPyP);
+        }
 
         
         //Metodos de Busqueda
@@ -179,7 +187,13 @@ namespace MascotaFeliz.App.Consola
         private static void BuscarHistoria(int idHistoria)
         {
             var historia = _repoHistoria.GetHistoria(idHistoria);
-            Console.WriteLine("El Id es " + historia.Id+" y la fehcha es " + historia.FechaInicial);
+            Console.WriteLine("El Id es " + historia.Id+" y la fecha es Inicial " + historia.FechaInicial);
+        }
+
+        private static void BuscarVisitasPyP(int idVisitaPyP)
+        {
+            var visitaPyP = _repoVisitaPyP.GetVisitasPyP(idVisitaPyP);
+            Console.WriteLine("El Id es " + visitaPyP.Id+" y la fecha Inicial es " + visitaPyP.FechaVisita);
         }
 
         //Metodos de Busqueda completa
@@ -216,7 +230,16 @@ namespace MascotaFeliz.App.Consola
             var historias = _repoHistoria.GetAllHistorias();
             foreach (Historia h in historias)
             {
-                Console.WriteLine("El Id es " + h.Id+" y la fehcha es " + h.FechaInicial); 
+                Console.WriteLine("El Id es " + h.Id+" y la fecha inicial es " + h.FechaInicial); 
+            }
+        }
+
+        public static void GetAllVisitasPyP()
+        {
+            var visitasPyP = _repoVisitaPyP.GetAllVisitasPyP();
+            foreach (VisitaPyP v in visitasPyP)
+            {
+                Console.WriteLine("El Id es " + v.Id+" y la fecha inicial es " + v.FechaVisita); 
             }
         }
 
@@ -255,6 +278,15 @@ namespace MascotaFeliz.App.Consola
         //     foreach (Historia h in historiaFiltro)
         //     {
         //         Console.WriteLine(h.Id + " " + h.FechaInicial);
+        //     }
+        // }
+
+        // private static void GetVisitasPyPPorFiltro()
+        // {
+        //     var visitasPyPFiltro = _repoVisitaPyP.GetVisitasPyPPorFiltro("C");
+        //     foreach (VisitaPyP v in visitasPyPFiltro)
+        //     {
+        //         Console.WriteLine("La Id es " + v.Id + "La fecha de visita es " +v.FechaVisita);
         //     }
         // }
 
