@@ -159,9 +159,9 @@
     </style>
     <header>
         <h1>Mascota Feliz</h1>
-        <h1>Lista Dueños</h1>
     </header>
     <div id="form">
+        <h1>Lista Dueños</h1>
         <div class="row">
             <div class="col-2">
                 <label for="name">Buscar Dueño</label>
@@ -202,8 +202,16 @@
                                     <td>@dueno.Direccion</td>
                                     <td>@dueno.Telefono</td>
                                     <td>@dueno.Correo</td>
-                                    @* <td>@dueno.Acciones</td> *@
-                                </tr>
+                                    <td>
+                                        <a class="btn btn-primary table-btn" asp-page="./DetallesDuenos" asp-route-duenoId="@dueno.Id" >
+                                            Detalles
+                                        </a>
+                                    </td>
+                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarDueno" asp-route-duenoId="@dueno.Id">
+                                            Editar
+                                        </a>
+                                    </td>
+                                </tr>   
                             }
                           </table>
                         <!--Boton primary que significa azul -->
@@ -225,5 +233,10 @@
     {
     window.location.href="/Duenos/CrearDuenos";
     }
+    function redirect3()
+    {
+    window.location.href="/Duenos/EditarDueno";
+    }
+    
 </script>
 }

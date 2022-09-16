@@ -89,3 +89,5 @@ C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\R
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascotas\ListaMascotas.cshtml.g.cs
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\VisitasPyP\CrearVisitasPyP.cshtml.g.cs
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\VisitasPyP\ListaVisitasPyP.cshtml.g.cs
+C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Duenos\EditarDueno.cshtml.g.cs
+C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Duenos\DetallesDuenos.cshtml.g.cs
