@@ -190,6 +190,29 @@
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
+                            @foreach(var visitaPyP in Model.listaVisitasPyP)
+                            {
+
+                                <tr>
+                                    <!--Nombre columnas-->
+                                    <td>@visitaPyP.FechaVisita</td>
+                                    <td>@visitaPyP.Temperatura</td>
+                                    <td>@visitaPyP.Peso</td>
+                                    <td>@visitaPyP.FrecuenciaRespiratoria</td>
+                                    <td>@visitaPyP.FrecuenciaCardiaca</td>
+                                    <td>@visitaPyP.EstadoAnimo</td>
+                                    <td>@visitaPyP.Recomendaciones</td>
+                                    <td>
+                                        <a class="btn btn-primary table-btn" asp-page="./DetallesVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id" >
+                                            Detalles
+                                        </a>
+                                    </td>
+                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id">
+                                            Editar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                           </table>
                         <!--Boton primary que significa azul -->
                         <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Visita</button>

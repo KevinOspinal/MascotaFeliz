@@ -167,7 +167,7 @@
                 <label for="name">Buscar Veterinario</label>
             </div>
             <div class="col-8 mt-4">
-              <input aria-label="search" type="search" placeholder="Buscar Mascota"  class="form-control" >
+              <input aria-label="search" type="search" placeholder="Buscar Veterinario"  class="form-control" >
             </div>
           </div>
           <div class="row">
@@ -187,7 +187,7 @@
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Télefono</th>
                                 <th scope="col">Tarjeta Profesional</th>
-                                @* <th scope="col">Acciones</th> *@
+                                <th scope="col"> </th>
                               </tr>
                             </thead>
                             @foreach(var veterinario in Model.listaVeterinarios)
@@ -201,7 +201,15 @@
                                     <td>@veterinario.Direccion</td>
                                     <td>@veterinario.Telefono</td>
                                     <td>@veterinario.TarjetaProfesional</td>
-                                    @* <td>@dueno.Acciones</td> *@
+                                    <td>
+                                        <a class="btn btn-primary table-btn" asp-page="./DetallesVeterinarios" asp-route-veterinarioId="@veterinario.Id" >
+                                            Detalles
+                                        </a>
+                                    </td>
+                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarVeterinarios" asp-route-veterinarioId="@veterinario.Id">
+                                            Editar
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                           </table>

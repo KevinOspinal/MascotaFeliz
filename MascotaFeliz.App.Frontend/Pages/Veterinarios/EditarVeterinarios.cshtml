@@ -1,8 +1,9 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.CrearHistoriasModel
+@model MascotaFeliz.App.Frontend.Pages.EditarVeterinariosModel
 @{
-<style>
-                    * {
+
+    <style>
+        * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -157,9 +158,9 @@
         border-radius: 5px;
         height: 40px;
         cursor: pointer;
-        margin-top: 30px;
+        margin-top: 18px;
         margin-left: 40px;
-        font-size: 2.5em;
+        font-size: 1.5em;
         font-family: 'Sniglet', cursive;
         -webkit-transition: background-color 0.5s;
         -moz-transition: background-color 0.5s;
@@ -203,38 +204,57 @@
     }
 
     #perroImg {
+        margin-top: -500px;
         margin-left: 1000px;
-        margin-top: -200px;
-        margin-bottom: 200px;
-        width: 200px;
-        height: 200px;
-
     }
 
     #waterform{
-        margin-top: 200px;
+        margin-top: 5px;
         margin-left: 400px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+    }
+
+    button{
+        margin-top: 20px;
+        height: 40px;
     }
     </style>
+
     <header>
-        <h1>Mascota Feliz</h1>
+        <h1>Editar Veterinarios</h1>
     </header>
     <div id="form">
-        
-        <div class="fish" id="fish"></div>
-        <div class="fish" id="fish2"></div>
-        
-        <form id="waterform" method="post">
-
-        <div class="formgroup" id="name-form">
-            <label for="name">Fecha Visita*</label>
-            <input type="date" id="fecha" name="fecha" />
-        </div>
-       
-        <a class="btn btn-primary table-btn" asp-page="./ListaHistorias"> Registra la Historia </a>
-        <a class="btn btn-primary table-btn" asp-page="./ListaHistorias"> Volver a la lista </a>
+        <form method="post" >
+            <div class="form-group" id="waterform">
+                <input type="hidden" asp-for="veterinario.Id"/>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.Cedula"></label>
+                    <input asp-for="veterinario.Cedula" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.Nombres"></label>
+                    <input asp-for="veterinario.Nombres" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.Apellidos"></label>
+                    <input asp-for="veterinario.Apellidos" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.Direccion"></label>
+                    <input asp-for="veterinario.Direccion" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.Telefono"></label>
+                    <input asp-for="veterinario.Telefono" class="form-control">            
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="veterinario.TarjetaProfesional"></label>
+                    <input asp-for="veterinario.TarjetaProfesional" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Grabar</button>
+                <a asp-page="./ListarVeterinarios" class="btn btn-primary table-btn">Volver lista </a>
+            </div>
         </form>
-        <img id="perroImg" src="https://cdn-icons-png.flaticon.com/512/2885/2885186.png" alt="visita">
-    </div>
+    </div>   
+
 }

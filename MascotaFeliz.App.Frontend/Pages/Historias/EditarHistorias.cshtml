@@ -1,8 +1,9 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.ListaMascotasModel
+@model MascotaFeliz.App.Frontend.Pages.EditarHistoriasModel
 @{
-     <style>
-    * {
+
+             <style>
+        * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -58,10 +59,10 @@
     }
 
     .titulo {
-        color: #black;
+        color: #642a73;
         font-size: 30px;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
     }
 
     input,
@@ -101,7 +102,7 @@
         color: white;
         height: 50px;
         cursor: pointer;
-        margin-top: 30px;
+        margin-top: 15px;
         font-size: 1.29em;
         font-family: 'Sniglet', cursive;
         -webkit-transition: background-color 0.5s;
@@ -149,83 +150,91 @@
         color: red;
     }
 
-    .card{
-        margin-bottom: 50px;
+    a {
+        text-decoration: none;
+        list-style: none;
+        font-weight: bold;
+        background-color: rgb(237, 163, 52);
+        border-radius: 5px;
+        height: 40px;
+        cursor: pointer;
+        margin-top: 18px;
+        margin-left: 40px;
+        font-size: 1.5em;
+        font-family: 'Sniglet', cursive;
+        -webkit-transition: background-color 0.5s;
+        -moz-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+        transition: background-color 0.5s;
+
     }
 
-    .button1{
+    a:hover {
+        background-color: #e58f0e;
+    }
+
+    .aIndex {
+        text-decoration: none;
+        list-style: none;
+        font-weight: bold;
+        background-color: rgb(237, 163, 52);
+        border-radius: 5px;
+        height: 50px;
+        cursor: pointer;
+        margin-top: 30px;
+        margin-left: 40px;
+        font-size: 1.1em;
+        font-family: 'Sniglet', cursive;
+        -webkit-transition: background-color 0.5s;
+        -moz-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+        transition: background-color 0.5s;
+    }
+
+    .link {
+        margin-left: 640px;
+    }
+
+    img {
+        max-width: 100%;
+        height: 340px;
+        width: 340px;
+        margin-left: 35px;
+        margin-top: 20px;
+    }
+
+    #perroImg {
+        margin-top: -500px;
         margin-left: 1000px;
     }
+
+    #waterform{
+        margin-top: 5px;
+        margin-left: 400px;
+        margin-bottom: 20px;
+    }
+
+    button{
+        margin-top: 20px;
+        height: 40px;
+    }
     </style>
+
     <header>
-        <h1>Lista Mascotas</h1>
+        <h1>Editar Historia</h1>
     </header>
     <div id="form">
-        <div class="row">
-            <div class="col-2">
-                <label for="name">Buscar Mascota</label>
-            </div>
-            <div class="col-8 mt-4">
-              <input aria-label="search" type="search" placeholder="Buscar Mascota"  class="form-control" >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 offset-lg-2 mt-4">
-                <!-- Tarjeta que contiene la tabla-->
-                <div class="card">
-                    <div class="card-body text-center">
-                        <label class="titulo">Mascota</label>
-                        <table id="Tabla" class="table table-primary table-striped mt-4">
-                            <!--Cabecera de la tabla -->
-                            <thead>
-                              <tr>
-                                <!--Nombre columnas-->
-                                <th scope="col">Nombre Mascota</th>
-                                <th scope="col">Color</th>
-                                <th scope="col">Especie</th>
-                                <th scope="col">Raza</th>
-                                @* <th scope="col">Acciones</th> *@
-                              </tr>
-                            </thead>
-                            @foreach(var mascota in Model.listaMascotas)
-                            {
-
-                                <tr>
-                                    <!--Nombre columnas-->
-                                    <td>@mascota.Nombre</td>
-                                    <td>@mascota.Color</td>
-                                    <td>@mascota.Especie</td>
-                                    <td>@mascota.Raza</td>
-                                    <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesMascotas" asp-route-mascotaId="@mascota.Id" >
-                                            Detalles
-                                        </a>
-                                    </td>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarMascotas" asp-route-mascotaId="@mascota.Id">
-                                            Editar
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                          </table>
-                        <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Mascota</button>
-                        <button class="btn btn-primary float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
-                    </div>
+        <form method="post" >
+            <div class="form-group" id="waterform">
+                <input type="hidden" asp-for = "historia.Id" />
+                <div class="formgroup" id="name-form">
+                    <label asp-for="historia.FechaInicial"></label>
+                    <input asp-for="historia.FechaInicial" class="form-control">
                 </div>
+                <button type="submit" class="btn btn-primary table-btn">Actualizar</button>
+                <a class="btn btn-primary table-btn" asp-page="./ListaHistorias" class="btn-default">Volver Lista </a>
             </div>
-    
-        </div>
-    </div>
+        </form>
+    </div>  
 
-    <script type="text/javascript">
-    function redirect()
-    {
-    window.location.href="/Index";
-    }
-    function redirect2()
-    {
-    window.location.href="/Mascotas/CrearMascotas";
-    }
-    </script>
 }

@@ -158,7 +158,6 @@
     }
     </style>
     <header>
-        <h1>Mascota Feliz</h1>
         <h1>Lista Historias</h1>
     </header>
     <div id="form">
@@ -167,7 +166,7 @@
                 <label for="name">Buscar Historia</label>
             </div>
             <div class="col-8 mt-4">
-              <input aria-label="search" type="search" placeholder="Buscar Mascota"  class="form-control" >
+              <input aria-label="search" type="search" placeholder="Buscar Historia"  class="form-control" >
             </div>
           </div>
           <div class="row">
@@ -182,7 +181,7 @@
                               <tr>
                                 <!--Nombre columnas-->
                                 <th scope="col">FechaInicial</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col"> </th>
                               </tr>
                             </thead>
                             @foreach(var historia in Model.listaHistorias)
@@ -190,7 +189,14 @@
                                 <tr>
                                     <!--Nombre columnas-->
                                     <td>@historia.FechaInicial</td>
-                                    @* <td>@dueno.Acciones</td> *@
+                                    <td>
+                                        <a class="btn btn-primary table-btn" asp-page="./DetallesHistorias" asp-route-historiaId="@historia.Id" >
+                                            Detalles
+                                        </a>
+                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarHistorias" asp-route-historiaId="@historia.Id">
+                                            Editar
+                                        </a>
+                                    </td> 
                                 </tr>
                             }
                           </table>

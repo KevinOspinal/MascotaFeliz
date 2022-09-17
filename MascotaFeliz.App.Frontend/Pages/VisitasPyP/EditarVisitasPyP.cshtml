@@ -1,6 +1,7 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.DetallesDuenosModel
+@model MascotaFeliz.App.Frontend.Pages.EditarVisitasPyPModel
 @{
+
     <style>
         * {
             margin: 0;
@@ -157,7 +158,7 @@
             border-radius: 5px;
             height: 40px;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 18px;
             margin-left: 40px;
             font-size: 1.5em;
             font-family: 'Sniglet', cursive;
@@ -170,6 +171,24 @@
 
         a:hover {
             background-color: #e58f0e;
+        }
+
+        .aIndex {
+            text-decoration: none;
+            list-style: none;
+            font-weight: bold;
+            background-color: rgb(237, 163, 52);
+            border-radius: 5px;
+            height: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 40px;
+            font-size: 1.1em;
+            font-family: 'Sniglet', cursive;
+            -webkit-transition: background-color 0.5s;
+            -moz-transition: background-color 0.5s;
+            -o-transition: background-color 0.5s;
+            transition: background-color 0.5s;
         }
 
         .link {
@@ -194,40 +213,52 @@
             margin-left: 400px;
             margin-bottom: 20px;
         }
+
+        button {
+            margin-top: 20px;
+            height: 40px;
+        }
     </style>
 
     <header>
-        <h1>Detalles del Dueño</h1>
+        <h1>Editar Visitas</h1>
     </header>
-
     <div id="form">
-        <form id="waterform" method="post">
-            <div>
-                <label for="id">Id: @Model.dueno.Id</label> 
+        <form method="post">
+            <div class="form-group" id="waterform">
+                <input type="hidden" asp-for="visitaPyP.Id" />
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.FechaVisita"></label>
+                    <input asp-for="visitaPyP.FechaVisita" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.Temperatura"></label>
+                    <input asp-for="visitaPyP.Temperatura" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.Peso"></label>
+                    <input asp-for="visitaPyP.Peso" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.FrecuenciaRespiratoria"></label>
+                    <input asp-for="visitaPyP.FrecuenciaRespiratoria" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.FrecuenciaCardiaca"></label>
+                    <input asp-for="visitaPyP.FrecuenciaCardiaca" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.EstadoAnimo"></label>
+                    <input asp-for="visitaPyP.EstadoAnimo" class="form-control">
+                </div>
+                <div class="formgroup" id="name-form">
+                    <label asp-for="visitaPyP.Recomendaciones"></label>
+                    <input asp-for="visitaPyP.Recomendaciones" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Grabar</button>
+                <a asp-page="./ListaVisitasPyP" class="btn btn-primary table-btn">Volver lista </a>
             </div>
-            <div class="formgroup" id="name-form">
-                <label for="cedula">Cedula: @Model.dueno.Cedula</label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="name">Nombre: @Model.dueno.Nombres </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="">Apellido: @Model.dueno.Apellidos </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="direccion">Direccion: @Model.dueno.Direccion </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="telefono"> Telefono: @Model.dueno.Telefono </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="correo">Correo: @Model.dueno.Correo </label> 
-            </div>
-            <a asp-page="./ListaDuenos" class="btn btn-primary table-btn">Lista de Dueños </a>
         </form>
-
     </div>
-
-
 
 }

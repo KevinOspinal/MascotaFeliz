@@ -1,7 +1,8 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.DetallesDuenosModel
+@model MascotaFeliz.App.Frontend.Pages.DetallesVisitasPyPModel
 @{
-    <style>
+
+     <style>
         * {
             margin: 0;
             padding: 0;
@@ -194,40 +195,45 @@
             margin-left: 400px;
             margin-bottom: 20px;
         }
+
+        btn{
+           height: 340px; 
+        }
     </style>
 
     <header>
-        <h1>Detalles del Dueño</h1>
+        <h1>Detalles de la VisitaPyP</h1>
     </header>
 
     <div id="form">
         <form id="waterform" method="post">
             <div>
-                <label for="id">Id: @Model.dueno.Id</label> 
+                <label for="id">Id: @Model.visitaPyP.Id</label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="cedula">Cedula: @Model.dueno.Cedula</label> 
+                <label for="cedula">Fecha Visita: @Model.visitaPyP.FechaVisita</label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="name">Nombre: @Model.dueno.Nombres </label> 
+                <label for="name">Temperatura: @Model.visitaPyP.Temperatura </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="">Apellido: @Model.dueno.Apellidos </label> 
+                <label for="">Peso: @Model.visitaPyP.Peso </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="direccion">Direccion: @Model.dueno.Direccion </label> 
+                <label for="direccion">FrecuenciaRespiratoria : @Model.visitaPyP.FrecuenciaRespiratoria </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="telefono"> Telefono: @Model.dueno.Telefono </label> 
+                <label for="telefono"> FrecuenciaCardiaca: @Model.visitaPyP.FrecuenciaCardiaca </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="correo">Correo: @Model.dueno.Correo </label> 
+                <label for="correo">EstadoAnimo: @Model.visitaPyP.EstadoAnimo </label> 
             </div>
-            <a asp-page="./ListaDuenos" class="btn btn-primary table-btn">Lista de Dueños </a>
+            <div class="formgroup" id="name-form">
+                <label for="correo">Recomendaciones: @Model.visitaPyP.Recomendaciones </label> 
+            </div>
+            <a class="btn btn-primary table-btn" asp-page="./ListaVisitasPyP"> Volver a lista </a>
         </form>
 
     </div>
-
-
 
 }

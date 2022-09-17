@@ -1,6 +1,7 @@
 ﻿@page
-@model MascotaFeliz.App.Frontend.Pages.DetallesDuenosModel
+@model MascotaFeliz.App.Frontend.Pages.DetallesHistoriasModel
 @{
+
     <style>
         * {
             margin: 0;
@@ -194,40 +195,26 @@
             margin-left: 400px;
             margin-bottom: 20px;
         }
+
+        btn{
+           height: 340px; 
+        }
     </style>
 
     <header>
-        <h1>Detalles del Dueño</h1>
+        <h1>Detalles de la Historia</h1>
     </header>
 
     <div id="form">
         <form id="waterform" method="post">
             <div>
-                <label for="id">Id: @Model.dueno.Id</label> 
+                <label for="id">Id: @Model.historia.Id</label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="cedula">Cedula: @Model.dueno.Cedula</label> 
+                <label for="historia">Fecha Inicial: @Model.historia.FechaInicial</label> 
             </div>
-            <div class="formgroup" id="name-form">
-                <label for="name">Nombre: @Model.dueno.Nombres </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="">Apellido: @Model.dueno.Apellidos </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="direccion">Direccion: @Model.dueno.Direccion </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="telefono"> Telefono: @Model.dueno.Telefono </label> 
-            </div>
-            <div class="formgroup" id="name-form">
-                <label for="correo">Correo: @Model.dueno.Correo </label> 
-            </div>
-            <a asp-page="./ListaDuenos" class="btn btn-primary table-btn">Lista de Dueños </a>
+            <a class="btn btn-primary table-btn" asp-page="./ListaHistorias"> Volver a lista </a>
         </form>
 
     </div>
-
-
-
 }

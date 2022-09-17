@@ -18,11 +18,11 @@ namespace MascotaFeliz.App.Frontend.Pages
         {
             var veterinario = new Veterinario{
                 Cedula = "1084227555",
-                Nombres = "Leonardo",
-                Apellidos = "Eraso",
-                Direccion ="Bogota",
-                Telefono = "31653184662",
-                TarjetaProfesional = "MP-124565"
+                Nombres = "Jhon",
+                Apellidos = "Melo",
+                Direccion ="Santa marta",
+                Telefono = "3153181346",
+                TarjetaProfesional = "MP-151216"
             };
             veterinario = _repoVeterinario.AddVeterinario(veterinario);
         }

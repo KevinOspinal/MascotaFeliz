@@ -19,12 +19,12 @@ namespace MascotaFeliz.App.Frontend.Pages
         public void OnGet()
         {
             var dueno = new Dueno{
-                Cedula = "1084227555",
-                Nombres = "christian",
-                Apellidos = "Eraso",
+                Cedula = "36752299",
+                Nombres = "Sandra",
+                Apellidos = "Maya",
                 Direccion ="Pasto",
-                Telefono = "31653184662",
-                Correo = "wilsoneraso@gmail.com"
+                Telefono = "3003214459",
+                Correo = "sandramaya@gmail.com"
             };
             dueno = _repoDueno.AddDueno(dueno);
         }
