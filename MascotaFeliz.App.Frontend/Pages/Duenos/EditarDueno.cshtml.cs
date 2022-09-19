@@ -20,7 +20,8 @@ namespace MascotaFeliz.App.Frontend.Pages
         {
             this._repoDueno = new RepositorioDueno(new Persistencia.AppContext());
         }
-        public IActionResult OnGet(int? duenoId)
+        // OnGet muestra con dueno lleno dueño vacio, muestre el formulario
+        public IActionResult OnGet(int? duenoId)// Puede o no recibir un id
         {
             if (duenoId.HasValue)
             {
@@ -37,7 +38,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             else
                 return Page();
         }
-
+         // grabar
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -54,6 +55,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             }
             return Page();
         }
+        
 
     }
 }

@@ -12,9 +12,14 @@ namespace MascotaFeliz.App.Frontend.Pages
     public class ListaDuenosModel : PageModel
     {
         //Constructor
-        private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
+        private readonly IRepositorioDueno _repoDueno;
         //Se crea una propiedad
         public IEnumerable<Dueno> listaDuenos {get;set;}
+
+        public ListaDuenosModel()
+        {
+            this._repoDueno= new RepositorioDueno(new Persistencia.AppContext());
+        }
     
         //LLama al metodo
         public void OnGet()

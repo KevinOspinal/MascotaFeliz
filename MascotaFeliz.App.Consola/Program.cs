@@ -145,13 +145,21 @@ namespace MascotaFeliz.App.Consola
         //     }
         // }
 
-        // private static void AsignarVeterinario()
-        // {
-        //     var veterinario = _repoMascota.AsignarVeterinario(1, 15);
-        //     Console.WriteLine(veterinario.Nombres + " " + veterinario.Apellidos);
-        // }
+        private static void AsignarVeterinario()
+        {
+            var veterinario = _repoMascota.AsignarVeterinario(1, 15);
+            Console.WriteLine(veterinario.Nombres + " " + veterinario.Apellidos);
+        }
+
+        private static void AsignarDueno()
+        {
+            var vdueno = _repoMascota.AsignarDueno(1, 15);
+            Console.WriteLine(dueno.Nombres + " " + dueno.Apellidos);
+        }
 
         // Metodos de Borrado
+
+        
 
         private static void DeleteDueno(int idDueno)
         {

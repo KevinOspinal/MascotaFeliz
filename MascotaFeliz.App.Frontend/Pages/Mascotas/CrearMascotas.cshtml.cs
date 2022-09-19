@@ -11,16 +11,28 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class CrearMascotasModel : PageModel
     {
+        //Constructor
         private static IRepositorioMascota _repoMascota = new RepositorioMascota(new Persistencia.AppContext());
-        public void OnGet()
+
+        [BindProperty]
+        public Mascota mascota {get;set;}
+            
+
+        //LLama al metodo y actualiza 
+
+        public ActionResult OnGet()
         {
-            var mascota = new Mascota{
-                Nombre = "Rex",
-                Color = "Cafe",
-                Especie ="Macho",
-                Raza = "Golden"
-            };
-            mascota = _repoMascota.AddMascota(mascota);
+            return Page();
+        }
+
+        public ActionResult OnPost(){
+            /*if(!ModelState.IsValid){
+                return Page();
+            }*/
+            if(_repoMascota.AddMascota(mascota) != null){
+                return RedirectToPage("ListaMascotas");
+            }
+            return Page();
         }
     }
 }

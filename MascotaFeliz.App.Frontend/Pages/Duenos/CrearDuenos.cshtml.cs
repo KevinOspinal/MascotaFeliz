@@ -14,19 +14,26 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         //Constructor
         private static IRepositorioDueno _repoDueno = new RepositorioDueno(new Persistencia.AppContext());
+
+        [BindProperty]
+        public Dueno dueno {get;set;}
             
+
         //LLama al metodo
-        public void OnGet()
+
+        public ActionResult OnGet()
         {
-            var dueno = new Dueno{
-                Cedula = "36752299",
-                Nombres = "Sandra",
-                Apellidos = "Maya",
-                Direccion ="Pasto",
-                Telefono = "3003214459",
-                Correo = "sandramaya@gmail.com"
-            };
-            dueno = _repoDueno.AddDueno(dueno);
+            return Page();
+        }
+
+        public ActionResult OnPost(){
+            /*if(!ModelState.IsValid){
+                return Page();
+            }*/
+            if(_repoDueno.AddDueno(dueno) != null){
+                return RedirectToPage("ListaDuenos");
+            }
+            return Page();
         }
         
     }

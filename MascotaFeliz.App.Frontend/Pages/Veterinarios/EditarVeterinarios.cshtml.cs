@@ -25,7 +25,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             {
                 veterinario = _repoVeterinario.GetVeterinario(veterinarioId.Value);
             }
-        else
+            else
             {
                 veterinario = new Veterinario();
             }

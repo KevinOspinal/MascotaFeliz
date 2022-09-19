@@ -8,7 +8,6 @@ namespace MascotaFeliz.App.Dominio
         public string Color {get;set;}
         public string Especie {get;set;}
         public string Raza {get;set;}
-        // public string Dueno {get;set;}
         public Dueno Dueno {get;set;}
         public Veterinario Veterinario {get;set;}
         public Historia Historia {get;set;}

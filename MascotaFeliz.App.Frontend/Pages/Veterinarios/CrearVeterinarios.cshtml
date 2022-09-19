@@ -155,7 +155,7 @@
         font-weight: bold;
         background-color: rgb(237, 163, 52);
         border-radius: 5px;
-        height: 40px;
+        height: 100px;
         cursor: pointer;
         margin-top: 30px;
         margin-left: 40px;
@@ -225,33 +225,49 @@
         <form id="waterform" method="post">
 
         <div class="formgroup" id="name-form">
+            <label for="name">Cedula*</label>
+            <input type="text" asp-for="veterinario.Cedula" id="Cedula" name="Cedula" />
+
+        <div class="formgroup" id="name-form">
             <label for="name">Nombre*</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" asp-for="veterinario.Nombres" id="Nombres" name="Nombres" />
         </div>
 
         <div class="formgroup" id="name-form">
             <label for="name">Apellido*</label>
-            <input type="text" id="apellido" name="apellido" />
+            <input type="text" asp-for="veterinario.Apellidos" id="Apellidos" name="Apellidos" />
         </div>
 
         <div class="formgroup" id="name-form">
             <label for="name">Dirección*</label>
-            <input type="text" id="direccion" name="direccion" />
+            <input type="text" asp-for="veterinario.Direccion" id="Direccion" name="Direccion" />
         </div>
 
         <div class="formgroup" id="name-form">
             <label for="name">Teléfono*</label>
-            <input type="text" id="telefono" name="telefono" />
+            <input type="text" asp-for="veterinario.Telefono" id="Telefono" name="Telefono" />
         </div>
 
         <div class="formgroup" id="name-form">
             <label for="name">Tarjeta Profesional*</label>
-            <input type="text" id="tarjetaprofesional" name="tarjetaprofesional" />
+            <input type="text" asp-for="veterinario.TarjetaProfesional" id="tarjetaprofesional" name="tarjetaprofesional" />
         </div>
         
-        <a class="btn btn-primary table-btn" asp-page="./ListarVeterinarios"> Registra el veterinario </a>
-        <a class="btn btn-primary table-btn" asp-page="./ListarVeterinarios"> Volver a la lista </a>
+        <input type="submit" value="Registra el veterinario!" href="/Index" />
+        <button class="btn btn-primary float-start" name="redirect"  onClick="redirect()">Volver</button>
+
         </form>
         <img id="perroImg" src="https://cdn.discordapp.com/attachments/704142250845929492/1013996148597465148/1661825895379.png" alt="vet">
+        <script type="text/javascript">
+        function redirect()
+        {
+            window.location.href="/Index";
+        }
+        function redirect2()
+        {
+            window.location.href="/Duenos/ListarVeterinarios";
+        }
+        </script>
+
     </div>
 }

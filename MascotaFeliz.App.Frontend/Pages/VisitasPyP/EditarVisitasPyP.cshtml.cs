@@ -19,13 +19,14 @@ namespace MascotaFeliz.App.Frontend.Pages
         {
             this._repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
         }
-        public IActionResult OnGet(int? visitaPyPId)
+        // OnGet muestra con visitaPyP lleno dueño vacio, muestre el formulario
+        public IActionResult OnGet(int? visitaPyPId)// Puede o no recibir un id
         {
             if (visitaPyPId.HasValue)
             {
                 visitaPyP = _repoVisitaPyP.GetVisitasPyP(visitaPyPId.Value);
             }
-        else
+            else
             {
                 visitaPyP = new VisitaPyP();
             }
@@ -36,7 +37,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             else
                 return Page();
         }
-
+         // grabar
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

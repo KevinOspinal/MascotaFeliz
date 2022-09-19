@@ -19,13 +19,14 @@ namespace MascotaFeliz.App.Frontend.Pages
         {
             this._repoMascota = new RepositorioMascota(new Persistencia.AppContext());
         }
-        public IActionResult OnGet(int? mascotaId)
+        // OnGet muestra con mascota lleno dueño vacio, muestre el formulario
+        public IActionResult OnGet(int? mascotaId)// Puede o no recibir un id
         {
             if (mascotaId.HasValue)
             {
                 mascota = _repoMascota.GetMascota(mascotaId.Value);
             }
-        else
+            else
             {
                 mascota = new Mascota();
             }
@@ -36,7 +37,7 @@ namespace MascotaFeliz.App.Frontend.Pages
             else
                 return Page();
         }
-
+         // grabar
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

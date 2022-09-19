@@ -11,11 +11,15 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class ListaVisitasPyPModel : PageModel
     {
-        private static IRepositorioVisitaPyP _repoVisitaPyP = new RepositorioVisitaPyP(new Persistencia.AppContext());
-        //Se crea una propiedad
+        private readonly IRepositorioVisitaPyP _repoVisitaPyP;
+
         public IEnumerable<VisitaPyP> listaVisitasPyP {get;set;}
+
+        public ListaVisitasPyPModel()
+        {
+            this._repoVisitaPyP= new RepositorioVisitaPyP(new Persistencia.AppContext());
+        }
     
-        //LLama al metodo
         public void OnGet()
         {
             listaVisitasPyP = _repoVisitaPyP.GetAllVisitasPyP();

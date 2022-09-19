@@ -12,19 +12,26 @@ namespace MascotaFeliz.App.Frontend.Pages
     public class CrearVeterinariosModel : PageModel
     {
         private static IRepositorioVeterinario _repoVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
+
+        [BindProperty]
+        public Veterinario veterinario {get;set;} //NO SE PUEDE HACER LA HERENCIA POR QUE NO PERMITE HACERLO DESDE TABLAS
             
+
         //LLama al metodo
-        public void OnGet()
+
+        public ActionResult OnGet()
         {
-            var veterinario = new Veterinario{
-                Cedula = "1084227555",
-                Nombres = "Jhon",
-                Apellidos = "Melo",
-                Direccion ="Santa marta",
-                Telefono = "3153181346",
-                TarjetaProfesional = "MP-151216"
-            };
-            veterinario = _repoVeterinario.AddVeterinario(veterinario);
+            return Page();
+        }
+
+        public ActionResult OnPost(){
+            /*if(!ModelState.IsValid){
+                return Page();
+            }*/
+            if(_repoVeterinario.AddVeterinario(veterinario) != null){
+                return RedirectToPage("ListarVeterinarios");
+            }
+            return Page();
         }
     }
 }

@@ -11,15 +11,29 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class CrearHistoriasModel : PageModel
     {
-        private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
         
-        public void OnGet()
-        {
-            var historia = new Historia{
-            FechaInicial = new DateTime(2022,06,15)
-            };
+        //Constructor
+        private static IRepositorioHistoria _repoHistoria = new RepositorioHistoria(new Persistencia.AppContext());
+
+        [BindProperty]
+        public Historia historia {get;set;}
             
-            _repoHistoria.AddHistoria(historia);
+
+        //LLama al metodo
+
+        public ActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public ActionResult OnPost(){
+            /*if(!ModelState.IsValid){
+                return Page();
+            }*/
+            if(_repoHistoria.AddHistoria(historia) != null){
+                return RedirectToPage("ListaHistorias");
+            }
+            return Page();
         }
     }
 }
