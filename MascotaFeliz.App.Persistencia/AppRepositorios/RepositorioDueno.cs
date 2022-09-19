@@ -59,6 +59,11 @@ namespace MascotaFeliz.App.Persistencia
             return duenos;
         }
 
+        // public List<Mascota> Mascota()
+        // {
+        //     return GetAllDuenos_();
+        // }
+
         public IEnumerable<Dueno> GetAllDuenos_()
         {
             return _appContext.Duenos;

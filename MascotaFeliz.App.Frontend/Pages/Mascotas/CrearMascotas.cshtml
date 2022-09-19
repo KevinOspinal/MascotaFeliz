@@ -221,6 +221,7 @@
       <div class="fish" id="fish2"></div>
 
       <form id="waterform" method="post">
+        
         <div class="formgroup" id="name-form">
           <label asp-for="mascota.Nombre">Nombre*</label>
           <input type="text" asp-for="mascota.Nombre" id="nombre" name="nombre" />
@@ -240,21 +241,18 @@
           <label asp-for="mascota.Raza">Raza*</label>
           <input type="text" asp-for="mascota.Raza" id="raza" name="raza" />
         </div>
-        @* <div>
-
-        <label for="asignardueno">Asignar Dueño*:</label>
-        <select name="asignardueno" id="asignardueno">
-        <option value="Leonardo Eraso">Zulma Eraso</option>
-        <option value="Andres Perez">Andres Perez</option>
-        </div> *@
 
         <div>
+        <label for="veterinario.AsignarVeterinario">Asignar Veterinario*:</label>
+        <select name="veterinario.AsignarVeterinario" id="AsignarVeterinario">
+        <option asp-for="veterinario.Id"></option>
+        </div>
+
+        @* <div>
         <label for="asignarveterinario">Asignar Veterinario*:</label>
         <select name="asignarveterinario" id="asignarveterinario">
-        <option value="Leonardo Eraso">Leonard  o Eraso</option>
         <option value="Andres Perez">Andres Perez</option>
-
-        </div>
+        </div> *@
 
         <input
           type="submit"
