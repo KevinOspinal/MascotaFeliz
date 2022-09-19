@@ -1,5 +1,5 @@
 using System;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 
 using MascotaFeliz.App.Dominio;
 namespace MascotaFeliz.App.Dominio
@@ -7,7 +7,7 @@ namespace MascotaFeliz.App.Dominio
     public class Dueno:Persona
     {
         public string Correo {get;set;}
-        // public List<Mascota> Mascotas {set; get;}
+        public List<Mascota> Mascotas {set; get;}
     }
 
 
