@@ -1,7 +1,7 @@
 ﻿@page
 @model MascotaFeliz.App.Frontend.Pages.ListaDuenosModel
 @{
-        <style>
+    <style>
     * {
         margin: 0;
         padding: 0;
@@ -187,7 +187,7 @@
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Télefono</th>
                                 <th scope="col">Correo</th>
-                                @* <th scope="col">Acciones</th> *@
+                                <th scope="col">Mascota</th>
                               </tr>
                             </thead>
 
@@ -202,6 +202,7 @@
                                     <td>@dueno.Direccion</td>
                                     <td>@dueno.Telefono</td>
                                     <td>@dueno.Correo</td>
+                                    @* <td>@dueno.mascota.Nombre</td> *@
                                     <td>
                                         <a class="btn btn-primary table-btn" asp-page="./DetallesDuenos" asp-route-duenoId="@dueno.Id" >
                                             Detalles
@@ -213,6 +214,7 @@
                                     </td>
                                 </tr>   
                             }
+                            
                           </table>
                         <!--Boton primary que significa azul -->
                         <button class="btn btn-primary float-end" name="redirect"  onClick="redirect2()">Nuevo Dueño</button>

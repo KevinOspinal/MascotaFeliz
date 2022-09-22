@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MascotaFeliz.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220919234248_Inicial")]
+    [Migration("20220921152639_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -172,7 +172,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Mascota", b =>
                 {
                     b.HasOne("MascotaFeliz.App.Dominio.Dueno", "Dueno")
-                        .WithMany("Mascotas")
+                        .WithMany()
                         .HasForeignKey("DuenoId");
 
                     b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
@@ -200,11 +200,6 @@ namespace MascotaFeliz.App.Persistencia.Migrations
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
                 {
                     b.Navigation("VisitasPyP");
-                });
-
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Dueno", b =>
-                {
-                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

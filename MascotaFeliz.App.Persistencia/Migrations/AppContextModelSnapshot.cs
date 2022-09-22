@@ -170,7 +170,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Mascota", b =>
                 {
                     b.HasOne("MascotaFeliz.App.Dominio.Dueno", "Dueno")
-                        .WithMany("Mascotas")
+                        .WithMany()
                         .HasForeignKey("DuenoId");
 
                     b.HasOne("MascotaFeliz.App.Dominio.Historia", "Historia")
@@ -198,11 +198,6 @@ namespace MascotaFeliz.App.Persistencia.Migrations
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Historia", b =>
                 {
                     b.Navigation("VisitasPyP");
-                });
-
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Dueno", b =>
-                {
-                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

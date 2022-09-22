@@ -44,7 +44,8 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Mascota> GetAllMascotas()
         {
-            return GetAllMascotas_();
+            //El include es para poder llamar las listas de otras tablas
+            return _appContext.Mascotas.Include("Dueno").Include("Veterinario").Include("Historia");
         }
 
         public IEnumerable<Mascota> GetMascotaPorFiltro(string filtro)
@@ -120,28 +121,23 @@ namespace MascotaFeliz.App.Persistencia
             }
             return null;
         }
+
+        
+        public Historia AsignarHistoria(int idMascota, int idHistoria)
+        {
+            var mascotaEncontrado = _appContext.Mascotas.FirstOrDefault(m => m.Id == idMascota);
+            if (mascotaEncontrado !=null)
+            {
+                var historiaEncontrada = _appContext.Historias.FirstOrDefault (v => v.Id == idHistoria);
+                if (historiaEncontrada !=null)
+                {
+                    mascotaEncontrado.Historia = historiaEncontrada;
+                    _appContext.SaveChanges();
+                }
+                return historiaEncontrada;
+            }
+            return null;
+        
+        }
     }
 }
-
-
-
-
-
-  
-        
-
-        // public Visita AsignarVisitaPyP(int idHistoria, int idVisitaPyP)
-        // {
-        //     var historiaEncontrado = _appContext.Mascotas.FirstOrDefault(m => m.Id == idHistoria);
-        //     if (historiaEncontrado !=null)
-        //     {
-        //         var visitaPyPEncontrado = _appContext.Duenos.FirstOrDefault (v => v.Id == idVisitaPyP);
-        //         if (visitaPyPEncontrado !=null)
-        //         {
-        //             historiaEncontrado.VisitaPyP = visitaPyPEncontrado;
-        //             _appContext.SaveChanges();
-        //         }
-        //         return visitaPyPEncontrado;
-        //     }
-        //     return null;
-        // }

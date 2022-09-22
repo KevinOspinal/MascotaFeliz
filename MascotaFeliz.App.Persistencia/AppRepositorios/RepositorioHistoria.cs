@@ -43,10 +43,11 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Historia> GetAllHistorias()
         {
-            return GetAllHistorias_();
+            //El include es para poder llamar las listas de otras tablas
+            return _appContext.Historias;
         }
 
-        // public IEnumerable<Historia> GetHistoriasPorFiltro(string filtro)
+        // public IEnumerable<Historia> GetHistoriaPorFiltro(String filtro)
         // {
         //     var historias = GetAllHistorias(); // Obtiene todos los saludos
         //     if (historias != null)  //Si se tienen saludos
@@ -59,14 +60,9 @@ namespace MascotaFeliz.App.Persistencia
         //     return historias;
         // }
 
-        public IEnumerable<Historia> GetAllHistorias_()
-        {
-            return _appContext.Historias;
-        }
-
         public Historia GetHistoria(int idHistoria)
         {
-            return _appContext.Historias.FirstOrDefault(d => d.Id == idHistoria);
+            return _appContext.Historias.Include(a => a.VisitasPyP).FirstOrDefault(d => d.Id == idHistoria);
         }
 
         public Historia UpdateHistoria(Historia historia)
@@ -79,5 +75,21 @@ namespace MascotaFeliz.App.Persistencia
             }
             return historiaEncontrado;
         }    
+
+        public VisitaPyP AsignarVisitaPyP(int idHistoria, int idVisitaPyP)
+        {
+            var historiaEncontrada = _appContext.Historias.FirstOrDefault(m => m.Id == idHistoria);
+            if (historiaEncontrada !=null)
+            {
+                var visitaPyPEncontrada = _appContext.VisitasPyP.FirstOrDefault (e => e.Id == idVisitaPyP);
+                if (visitaPyPEncontrada !=null)
+                {
+                    historiaEncontrada.VisitasPyP.Add(visitaPyPEncontrada);
+                    _appContext.SaveChanges();
+                }
+                return visitaPyPEncontrada;
+            }
+            return null;
+        }
     }
 }

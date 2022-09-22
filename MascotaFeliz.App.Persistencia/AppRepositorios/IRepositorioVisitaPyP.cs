@@ -13,6 +13,7 @@ namespace MascotaFeliz.App.Persistencia
         VisitaPyP UpdateVisitasPyP(VisitaPyP visitaPyP);
         void DeleteVisitaPyP(int idVisitaPyP);
         VisitaPyP GetVisitasPyP(int idVisitaPyP);
-        // IEnumerable<VisitaPyP> GetVisitasPyPPorFiltro(String filtro);
+        // IEnumerable<VisitaPyP> GetVisitaPyPPorFiltro(String filtro);
+        
     }
 }

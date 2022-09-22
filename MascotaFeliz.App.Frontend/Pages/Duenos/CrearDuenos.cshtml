@@ -251,6 +251,12 @@
                 <input type="email" asp-for="dueno.Correo" id="correo" name="correo" />
             </div>
 
+            <div class="formgroup" id="name-form">
+                <label>Asignar Mascota*</label>
+                <input type="asignar"  id="asignar" name="asignar" />
+                <button class="btn btn-primary table-btn" asp-page="./ListaAsignarMascotas">Seleccionar </button> 
+            </div>
+
             <input type="submit" value="Registra el dueno" />
 
             <button class="btn btn-primary float-start" name="redirect"  onClick="redirect()">Volver</button>

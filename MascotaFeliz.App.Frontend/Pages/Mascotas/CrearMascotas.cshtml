@@ -155,7 +155,7 @@
         font-weight: bold;
         background-color: rgb(237, 163, 52);
         border-radius: 5px;
-        height: 100px;
+        height: 40px;
         cursor: pointer;
         margin-top: 30px;
         margin-left: 40px;
@@ -242,23 +242,30 @@
           <input type="text" asp-for="mascota.Raza" id="raza" name="raza" />
         </div>
 
-        <div>
-        <label for="veterinario.AsignarVeterinario">Asignar Veterinario*:</label>
-        <select name="veterinario.AsignarVeterinario" id="AsignarVeterinario">
-        <option asp-for="veterinario.Id"></option>
+        <div class="formgroup" id="name-form">
+          <label asp-for="mascota.Dueno.Nombres">Asignar Dueño*</label>
+          <input type="text" asp-for="mascota.Dueno.Nombres" id="AsignarDueno" name="AsignarDueno" />
         </div>
 
-        @* <div>
-        <label for="asignarveterinario">Asignar Veterinario*:</label>
-        <select name="asignarveterinario" id="asignarveterinario">
-        <option value="Andres Perez">Andres Perez</option>
-        </div> *@
+        <div class="formgroup" id="name-form">
+          <label asp-for="mascota.Veterinario.Nombres">Asignar Veterinario*</label>
+          <input type="text" asp-for="mascota.Dueno.Nombres" id="AsignarVeterinario" name="AsignarVeterinario" />
+        </div>
 
-        <input
+        <div class="formgroup" id="name-form">
+          <label asp-for="mascota.Historia.FechaInicial">Asignar Historia*</label>
+          <input type="text" asp-for="mascota.Historia.FechaInicial" id="AsignarHistoria" name="AsignarHistoria" />
+          <a href=""></a>
+        </div>
+
+        <button type="submit" class="btn btn-primary table-btn" > Registra la Mascota </button>
+        <a class="btn btn-primary table-btn" asp-page="./ListaMascotas"> Volver a la lista </a>
+
+        @* <input
           type="submit"
           value="Registra la Mascota!"
           href="/Pages/Mascotas/ListMascotas"
-        />
+        /> *@
       </form>
       <img
         id="perroImg"
