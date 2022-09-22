@@ -99,3 +99,6 @@ C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\R
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Veterinarios\EditarVeterinarios.cshtml.g.cs
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\VisitasPyP\DetallesVisitasPyP.cshtml.g.cs
 C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\VisitasPyP\EditarVisitasPyP.cshtml.g.cs
+C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascotas\ListaAsignarDueno.cshtml.g.cs
+C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascotas\ListaAsignarHistoria.cshtml.g.cs
+C:\Mascotas\MascotaFeliz.App\mascotafeliz.app.frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascotas\ListaAsignarVeterinario.cshtml.g.cs

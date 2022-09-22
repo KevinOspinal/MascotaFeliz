@@ -242,35 +242,23 @@
           <input type="text" asp-for="mascota.Raza" id="raza" name="raza" />
         </div>
 
-        <div class="formgroup" id="name-form">
-          <label asp-for="mascota.Dueno.Nombres">Asignar Dueño*</label>
-          <input type="text" asp-for="mascota.Dueno.Nombres" id="AsignarDueno" name="AsignarDueno" />
-        </div>
-
-        <div class="formgroup" id="name-form">
-          <label asp-for="mascota.Veterinario.Nombres">Asignar Veterinario*</label>
-          <input type="text" asp-for="mascota.Dueno.Nombres" id="AsignarVeterinario" name="AsignarVeterinario" />
-        </div>
-
-        <div class="formgroup" id="name-form">
-          <label asp-for="mascota.Historia.FechaInicial">Asignar Historia*</label>
-          <input type="text" asp-for="mascota.Historia.FechaInicial" id="AsignarHistoria" name="AsignarHistoria" />
-          <a href=""></a>
-        </div>
+        
 
         <button type="submit" class="btn btn-primary table-btn" > Registra la Mascota </button>
-        <a class="btn btn-primary table-btn" asp-page="./ListaMascotas"> Volver a la lista </a>
+        <button class="btn btn-primary float-start" name="redirect"  onClick="redirect()">Volver</button>
 
-        @* <input
-          type="submit"
-          value="Registra la Mascota!"
-          href="/Pages/Mascotas/ListMascotas"
-        /> *@
+        
       </form>
       <img
         id="perroImg"
         src="https://cdn.discordapp.com/attachments/704142250845929492/1013996190695690280/1661825843640.png"
         alt="perro"
       />
+    <script type="text/javascript">
+    function redirect()
+    {
+    window.location.href="/Index";
+    }
+    </script>
     </div>
 }

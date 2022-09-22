@@ -12,14 +12,26 @@ namespace MascotaFeliz.App.Frontend.Pages
     public class EditarMascotasModel : PageModel
     {
         private readonly IRepositorioMascota _repoMascota;
-        [BindProperty]
-        public Mascota mascota { get; set; }
+        private readonly IRepositorioDueno _repoDueno;
+        private readonly IRepositorioVeterinario _repoVeterinario;
+        private readonly IRepositorioHistoria _repoHistoria;
 
-        public EditarMascotasModel()
+        public Mascota mascota { get; set; }
+        public Veterinario veterinario {get;set;}
+        public Dueno dueno {get;set;}
+        public Historia historia {get;set;}
+        public IEnumerable<Dueno> listaDuenos{get;set;}
+        public IEnumerable<Veterinario> listaVeterinarios{get;set;}
+        public IEnumerable<Historia> listaHistorias{get;set;}
+        public EditarMascotasModel(Mascota mascota, int duenoId, int veterinarioId, int historiaId)
         {
             this._repoMascota = new RepositorioMascota(new Persistencia.AppContext());
+            this._repoDueno=new RepositorioDueno(new Persistencia.AppContext());
+            this._repoVeterinario=new RepositorioVeterinario(new Persistencia.AppContext());
+            this._repoHistoria=new RepositorioHistoria(new Persistencia.AppContext());
         }
         // OnGet muestra con mascota lleno dueño vacio, muestre el formulario
+
         public IActionResult OnGet(int? mascotaId)// Puede o no recibir un id
         {
             if (mascotaId.HasValue)
@@ -38,21 +50,30 @@ namespace MascotaFeliz.App.Frontend.Pages
                 return Page();
         }
          // grabar
-        public IActionResult OnPost()
+        public IActionResult OnPost(Mascota mascota, int duenoId, int veterinarioId, int historiaId)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                dueno = _repoDueno.GetDueno(duenoId);
+                veterinario = _repoVeterinario.GetVeterinario(veterinarioId);
+                historia = _repoHistoria.GetHistoria(historiaId);
+                if (mascota.Id > 0)
+                {
+                    mascota.Veterinario = veterinario;
+                    mascota.Dueno = dueno;
+                    mascota.Historia = historia;
+                    mascota = _repoMascota.UpdateMascota(mascota);
+                }
+                else
+                {
+                    mascota = _repoMascota.AddMascota(mascota);
+                    _repoMascota.AsignarDueno(mascota.Id,dueno.Id);
+                    _repoMascota.AsignarVeterinario(mascota.Id,veterinario.Id);
+                    _repoMascota.AsignarHistoria(mascota.Id,historia.Id);
+                }
+                
                 return Page();
             }
-            if (mascota.Id > 0)
-            {
-                mascota = _repoMascota.UpdateMascota(mascota);
-            }
-            else
-            {
-                _repoMascota.AddMascota(mascota);
-            }
-            return Page();
         }
     }
 }

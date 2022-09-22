@@ -243,6 +243,41 @@
                     <label asp-for="mascota.Raza"></label>
                     <input asp-for="mascota.Raza" class="form-control">
                 </div>
+
+                <div class="formgroup" id="name-form">
+                <label asp-for="mascota.Dueno.Nombres">Asignar Dueño*</label>
+                <select asp-for="mascota.Dueno.Id" id="AsignarDueno" name="AsignarDueno"> 
+                    <option value="0">Seleccione Dueños</option>
+                        @foreach(var dueno in Model.listaDuenos)
+                        {
+                            <option value="@dueno.Id" >@dueno.Nombres @dueno.Apellidos</option>
+                        }  
+                </select>
+                </div>
+
+                <div class="formgroup" id="name-form">
+                <label asp-for="mascota.Veterinario.Nombres">Asignar Veterinario*</label>
+                <select asp-for="mascota.Veterinario.Id" id="AsignarVeterinario" name="AsignarVeterinario"> 
+                    <option value="0">Seleccione Veterinario</option>
+                        @foreach(var veterinario in Model.listaVeterinarios)
+                        {
+                            <option value="@veterinario.Id" >@veterinario.Nombres @veterinario.Apellidos</option>
+                        }  
+                </select>
+                </div>
+
+                <div class="formgroup" id="name-form">
+                <label asp-for="mascota.Historia.Id">Asignar Historia*</label>
+                <select asp-for="mascota.Historia.Id" id="AsignarHistoria" name="AsignarHistoria"> 
+                    <option value="0">Seleccione Historia</option>
+                        @foreach(var historia in Model.listaHistorias)
+                        {
+                            <option value="@historia.Id" >@historia.FechaInicial</option>
+                        }  
+                </select>
+
+                </div>
+
                 <button type="submit" class="btn btn-primary table-btn">Actualizar</button>
                 <a class="btn btn-primary table-btn" asp-page="./ListaMascotas" class="btn-default">Volver Lista </a>
             </div>
