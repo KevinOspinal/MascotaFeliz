@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxcLzlJxbQg28bWOzCKL/FZtDj0oJlz9qJahWebmHpqeNX2sPxbHfIXBWw8TG0TunzTObV08jg0A8gCFEAv3NA==",
+  "dgSpecHash": "7irwyZvJWJQ65W7ixLHch58DmrzPc3Xqr+i4KEhk6cnEaM7FkpYmQ2qPqNki1X7p7U9g0YTI0osi/NPUlAzp4Q==",
   "success": true,
-  "projectFilePath": "C:\\Mascotas\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
+  "projectFilePath": "C:\\mascotafeliz\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\calva\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\calva\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
