@@ -212,6 +212,10 @@
         margin-left: 400px;
         margin-bottom: 20px;
     }
+    .btn{
+        margin-top: 20px;
+        margin-left: 50px;
+    }
     </style>
     <header>
         <h1>Mascota Feliz</h1>
@@ -260,8 +264,19 @@
         </div>
 
         
-        <input type="submit" value="Registra la Visita!" href="/Visitas/ListaVisitasPyP" />
+        <button class="btn btn-info table-btn"> Registra la visita</button>
+        <button class="btn btn-info float-start" name="redirect"  onClick="redirect()">Volver a la lista</button>
+        
         </form>
         <img id="perroImg" src="https://cdn-icons-png.flaticon.com/512/2885/2885186.png" alt="visita">
+
+        <script type="text/javascript">
+
+        function redirect()
+        {
+        window.location.href="/Duenos/ListarVisitapyp";
+        }
+
+        </script>
     </div>
 }

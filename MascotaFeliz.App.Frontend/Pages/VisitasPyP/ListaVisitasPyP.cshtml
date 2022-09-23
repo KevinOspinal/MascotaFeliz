@@ -156,6 +156,9 @@
     .button1{
         margin-left: 1000px;
     }
+    .btn{
+        margin-left: 50px;
+    }
     </style>
     <header>
         <h1>Mascota Feliz</h1>
@@ -187,8 +190,7 @@
                                 <th scope="col">Frecuencia Cardiaca</th>
                                 <th scope="col">Estado Animo</th>
                                 <th scope="col">Recomendaciones</th>
-                                <th scope="col">Acciones</th>
-                              </tr>
+                                </tr>
                             </thead>
                             @foreach(var visitaPyP in Model.listaVisitasPyP)
                             {
@@ -203,11 +205,11 @@
                                     <td>@visitaPyP.EstadoAnimo</td>
                                     <td>@visitaPyP.Recomendaciones</td>
                                     <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id" >
+                                        <a class="btn btn-info table-btn" asp-page="./DetallesVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id" >
                                             Detalles
                                         </a>
                                     </td>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id">
+                                    <td><a class="btn btn-info table-btn" asp-page="./EditarVisitasPyP" asp-route-visitaPyPId="@visitaPyP.Id">
                                             Editar
                                         </a>
                                     </td>
@@ -215,8 +217,8 @@
                             }
                           </table>
                         <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Visita</button>
-                        <button class="btn btn-primary float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
+                        <button class="btn btn-info float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Visita</button>
+                        <button class="btn btn-info float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
                     </div>
                 </div>
             </div>

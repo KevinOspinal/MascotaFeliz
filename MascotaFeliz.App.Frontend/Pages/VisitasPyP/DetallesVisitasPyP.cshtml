@@ -226,11 +226,14 @@
                 <label for="telefono"> FrecuenciaCardiaca: @Model.visitaPyP.FrecuenciaCardiaca </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="correo">EstadoAnimo: @Model.visitaPyP.EstadoAnimo </label> 
+                <label for="estadoAnimo">EstadoAnimo: @Model.visitaPyP.EstadoAnimo </label> 
             </div>
             <div class="formgroup" id="name-form">
-                <label for="correo">Recomendaciones: @Model.visitaPyP.Recomendaciones </label> 
+                <label for="recomendaciones">Recomendaciones: @Model.visitaPyP.Recomendaciones </label> 
             </div>
+            @* <div class="formgroup" id="name-form">
+                <label for="Historia">Historia: @Model.visitaPyP.Historia.FechaInicial </label> 
+            </div> *@
             <a class="btn btn-primary table-btn" asp-page="./ListaVisitasPyP"> Volver a lista </a>
         </form>
 

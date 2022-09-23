@@ -156,9 +156,11 @@
     .button1{
         margin-left: 1000px;
     }
+    .btn{
+        margin-left: 50px;
+    }
     </style>
     <header>
-        <h1>Mascota Feliz</h1>
         <h1>Lista Veterinarios </h1>
     </header>
     <div id="form">
@@ -202,11 +204,11 @@
                                     <td>@veterinario.Telefono</td>
                                     <td>@veterinario.TarjetaProfesional</td>
                                     <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesVeterinarios" asp-route-veterinarioId="@veterinario.Id" >
+                                        <a class="btn btn-info table-btn" asp-page="./DetallesVeterinarios" asp-route-veterinarioId="@veterinario.Id" >
                                             Detalles
                                         </a>
                                     </td>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarVeterinarios" asp-route-veterinarioId="@veterinario.Id">
+                                    <td><a class="btn btn-info table-btn" asp-page="./EditarVeterinarios" asp-route-veterinarioId="@veterinario.Id">
                                             Editar
                                         </a>
                                     </td>
@@ -214,8 +216,8 @@
                             }
                           </table>
                         <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nuevo Veterinario</button>
-                        <button class="btn btn-primary float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
+                        <button class="btn btn-info float-end" name="redirect" class="button1" onClick="redirect2()">Nuevo Veterinario</button>
+                        <button class="btn btn-info float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
                     </div>
                 </div>
             </div>

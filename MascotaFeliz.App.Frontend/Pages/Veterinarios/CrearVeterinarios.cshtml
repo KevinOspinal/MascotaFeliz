@@ -212,6 +212,10 @@
         margin-left: 400px;
         margin-bottom: 20px;
     }
+    .btn{
+        margin-top: 20px;
+        margin-left: 50px;
+    }
     </style>
 
     <header>
@@ -253,19 +257,15 @@
             <input type="text" asp-for="veterinario.TarjetaProfesional" id="tarjetaprofesional" name="tarjetaprofesional" />
         </div>
         
-        <input type="submit" value="Registra el veterinario!" href="/Index" />
-        <button class="btn btn-primary float-start" name="redirect"  onClick="redirect()">Volver</button>
+        <button class="btn btn-info table-btn"> Registra el veterinario</button>
+        <button class="btn btn-info float-start" name="redirect"  onClick="redirect()">Volver a la lista</button>
 
         </form>
         <img id="perroImg" src="https://cdn.discordapp.com/attachments/704142250845929492/1013996148597465148/1661825895379.png" alt="vet">
         <script type="text/javascript">
         function redirect()
         {
-            window.location.href="/Index";
-        }
-        function redirect2()
-        {
-            window.location.href="/Duenos/ListarVeterinarios";
+            window.location.href="/ListarVeterinarios";
         }
         </script>
 

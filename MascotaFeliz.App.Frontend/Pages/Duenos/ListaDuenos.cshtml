@@ -156,6 +156,9 @@
     .button1{
         margin-left: 1000px;
     }
+    .btn{
+        margin-left: 50px;
+    }
     </style>
     <header>
         <h1>Mascota Feliz</h1>
@@ -204,11 +207,11 @@
                                     <td>@dueno.Correo</td>
                                     @* <td>@dueno.mascota.Nombre</td> *@
                                     <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesDuenos" asp-route-duenoId="@dueno.Id" >
+                                        <a class="btn btn-info table-btn" asp-page="./DetallesDuenos" asp-route-duenoId="@dueno.Id" >
                                             Detalles
                                         </a>
                                     </td>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarDueno" asp-route-duenoId="@dueno.Id">
+                                    <td><a class="btn btn-info table-btn" asp-page="./EditarDueno" asp-route-duenoId="@dueno.Id">
                                             Editar
                                         </a>
                                     </td>
@@ -217,8 +220,8 @@
                             
                           </table>
                         <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect"  onClick="redirect2()">Nuevo Dueño</button>
-                        <button class="btn btn-primary float-start" name="redirect"  onClick="redirect()">Volver</button>
+                        <button class="btn btn-info float-start" name="redirect"  onClick="redirect2()">Nuevo Dueño</button>
+                        <button class="btn btn-info float-start" name="redirect"  onClick="redirect()">Volver</button>
                     </div>
                 </div>
             </div>

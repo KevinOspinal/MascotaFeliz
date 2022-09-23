@@ -156,6 +156,9 @@
     .button1{
         margin-left: 1000px;
     }
+    .btn{
+        margin-left: 50px;
+    }
     </style>
     <header>
         <h1>Lista Mascotas</h1>
@@ -185,6 +188,7 @@
                                 <th scope="col">Color</th>
                                 <th scope="col">Especie</th>
                                 <th scope="col">Raza</th>
+                                @* <th scope="col">Dueño</th> *@
                               </tr>
                             </thead>
                             @foreach(var mascota in Model.listaMascotas)
@@ -197,12 +201,14 @@
                                     <td>@mascota.Color</td>
                                     <td>@mascota.Especie</td>
                                     <td>@mascota.Raza</td>
-                                    <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesMascotas" asp-route-mascotaId="@mascota.Id" >
+                                    @* <td>@mascota.Dueno.Nombres </td> *@
+                                    
+                                    
+                                    <td><a class="btn btn-info table-btn" asp-page="./DetallesMascotas" asp-route-mascotaId="@mascota.Id" >
                                             Detalles
                                         </a>
                                     </td>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarMascotas" asp-route-mascotaId="@mascota.Id">
+                                    <td><a class="btn btn-info table-btn" asp-page="./EditarMascotas" asp-route-mascotaId="@mascota.Id">
                                             Editar
                                         </a>
                                     </td>
@@ -210,8 +216,8 @@
                             }
                           </table>
                         <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Mascota</button>
-                        <button class="btn btn-primary float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
+                        <button class="btn btn-info float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Mascota</button>
+                        <button class="btn btn-info float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
                     </div>
                 </div>
             </div>

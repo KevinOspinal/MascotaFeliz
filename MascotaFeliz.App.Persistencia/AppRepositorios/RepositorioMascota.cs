@@ -61,14 +61,9 @@ namespace MascotaFeliz.App.Persistencia
             return mascotas;
         }
 
-        public IEnumerable<Mascota> GetAllMascotas_()
-        {
-            return _appContext.Mascotas;
-        }
-
         public Mascota GetMascota(int idMascota)
         {
-            return _appContext.Mascotas.FirstOrDefault(d => d.Id == idMascota);
+            return _appContext.Mascotas.Include("Dueno").Include("Veterinario").Include("Historia").FirstOrDefault(d => d.Id == idMascota);
         }
 
         public Mascota UpdateMascota(Mascota mascota)
@@ -80,6 +75,9 @@ namespace MascotaFeliz.App.Persistencia
                 mascotaEncontrado.Color = mascota.Color;
                 mascotaEncontrado.Especie = mascota.Especie;
                 mascotaEncontrado.Raza = mascota.Raza;
+                mascotaEncontrado.Dueno = mascota.Dueno;
+                mascotaEncontrado.Veterinario = mascota.Veterinario;
+                mascotaEncontrado.Historia = mascota.Historia;
                 _appContext.SaveChanges();
             }
             return mascotaEncontrado;

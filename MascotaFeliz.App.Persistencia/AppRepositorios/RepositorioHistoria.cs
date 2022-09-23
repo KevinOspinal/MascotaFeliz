@@ -44,7 +44,7 @@ namespace MascotaFeliz.App.Persistencia
        public IEnumerable<Historia> GetAllHistorias()
         {
             //El include es para poder llamar las listas de otras tablas
-            return _appContext.Historias;
+            return _appContext.Historias.Include("VisitasPyP");
         }
 
         // public IEnumerable<Historia> GetHistoriaPorFiltro(String filtro)

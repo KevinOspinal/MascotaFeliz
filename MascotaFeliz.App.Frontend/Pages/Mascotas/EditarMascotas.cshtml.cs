@@ -15,7 +15,7 @@ namespace MascotaFeliz.App.Frontend.Pages
         private readonly IRepositorioDueno _repoDueno;
         private readonly IRepositorioVeterinario _repoVeterinario;
         private readonly IRepositorioHistoria _repoHistoria;
-
+        [BindProperty]
         public Mascota mascota { get; set; }
         public Veterinario veterinario {get;set;}
         public Dueno dueno {get;set;}
@@ -23,7 +23,9 @@ namespace MascotaFeliz.App.Frontend.Pages
         public IEnumerable<Dueno> listaDuenos{get;set;}
         public IEnumerable<Veterinario> listaVeterinarios{get;set;}
         public IEnumerable<Historia> listaHistorias{get;set;}
-        public EditarMascotasModel(Mascota mascota, int duenoId, int veterinarioId, int historiaId)
+
+
+        public EditarMascotasModel()
         {
             this._repoMascota = new RepositorioMascota(new Persistencia.AppContext());
             this._repoDueno=new RepositorioDueno(new Persistencia.AppContext());
@@ -34,6 +36,9 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         public IActionResult OnGet(int? mascotaId)// Puede o no recibir un id
         {
+            listaDuenos = _repoDueno.GetAllDuenos();
+            listaVeterinarios = _repoVeterinario.GetAllVeterinarios();
+            listaHistorias = _repoHistoria.GetAllHistorias();
             if (mascotaId.HasValue)
             {
                 mascota = _repoMascota.GetMascota(mascotaId.Value);
@@ -50,7 +55,7 @@ namespace MascotaFeliz.App.Frontend.Pages
                 return Page();
         }
          // grabar
-        public IActionResult OnPost(Mascota mascota, int duenoId, int veterinarioId, int historiaId)
+        public IActionResult OnPost(Mascota mascota, int duenoId, int veterinarioId, int historiaId) 
         {
             if (ModelState.IsValid)
             {
@@ -72,6 +77,10 @@ namespace MascotaFeliz.App.Frontend.Pages
                     _repoMascota.AsignarHistoria(mascota.Id,historia.Id);
                 }
                 
+                return RedirectToPage("/Mascotas/ListaMascotas");
+            }
+            else
+            {
                 return Page();
             }
         }

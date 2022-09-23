@@ -43,7 +43,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Dueno> GetAllDuenos()
         {
-            return GetAllDuenos_();
+            return _appContext.Duenos;
         }
 
         public IEnumerable<Dueno> GetDuenosPorFiltro(string filtro)

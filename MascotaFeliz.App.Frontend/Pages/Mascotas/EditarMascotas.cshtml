@@ -245,8 +245,8 @@
                 </div>
 
                 <div class="formgroup" id="name-form">
-                <label asp-for="mascota.Dueno.Nombres">Asignar Dueño*</label>
-                <select asp-for="mascota.Dueno.Id" id="AsignarDueno" name="AsignarDueno"> 
+                <label for="dueno">Asignar Dueño*</label>
+                <select id="dueno" asp-for="mascota.Dueno.Id" name="duenoId"> 
                     <option value="0">Seleccione Dueños</option>
                         @foreach(var dueno in Model.listaDuenos)
                         {
@@ -256,8 +256,8 @@
                 </div>
 
                 <div class="formgroup" id="name-form">
-                <label asp-for="mascota.Veterinario.Nombres">Asignar Veterinario*</label>
-                <select asp-for="mascota.Veterinario.Id" id="AsignarVeterinario" name="AsignarVeterinario"> 
+                <label for="veterinario">Asignar Veterinario*</label>
+                <select id="veterinario" asp-for="mascota.Veterinario.Id" name="veterinarioId"> 
                     <option value="0">Seleccione Veterinario</option>
                         @foreach(var veterinario in Model.listaVeterinarios)
                         {
@@ -267,15 +267,14 @@
                 </div>
 
                 <div class="formgroup" id="name-form">
-                <label asp-for="mascota.Historia.Id">Asignar Historia*</label>
-                <select asp-for="mascota.Historia.Id" id="AsignarHistoria" name="AsignarHistoria"> 
+                <label for="historia">Asignar Historia*</label>
+                <select id="historia" asp-for="mascota.Historia.Id" name="historiaId"> 
                     <option value="0">Seleccione Historia</option>
                         @foreach(var historia in Model.listaHistorias)
                         {
                             <option value="@historia.Id" >@historia.FechaInicial</option>
                         }  
                 </select>
-
                 </div>
 
                 <button type="submit" class="btn btn-primary table-btn">Actualizar</button>

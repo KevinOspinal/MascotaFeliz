@@ -43,7 +43,7 @@ namespace MascotaFeliz.App.Persistencia
 
        public IEnumerable<Veterinario> GetAllVeterinarios()
         {
-            return GetAllVeterinarios_();
+            return _appContext.Veterinarios;
         }
 
         public IEnumerable<Veterinario> GetVeterinariosPorFiltro(string filtro)

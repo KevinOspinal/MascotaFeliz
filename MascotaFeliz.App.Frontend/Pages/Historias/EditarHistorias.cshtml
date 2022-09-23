@@ -231,6 +231,17 @@
                     <label asp-for="historia.FechaInicial"></label>
                     <input asp-for="historia.FechaInicial" class="form-control">
                 </div>
+
+                @* <div class="formgroup" id="name-form">
+                <label for="visitaPyP">Asignar VisitaPyP*</label>
+                <select id="visitaPyP" asp-for="historia.visitaPyP.Id" name="visitaPyPId"> 
+                    <option value="0">Seleccione VisitaPyP</option>
+                        @foreach(var visitaPyP in Model.listavisitasPyP)
+                        {
+                            <option value="@visitaPyP.Id" >@visitaPyP.FechaVisita</option>
+                        }  
+                </select>
+                </div> *@
                 <button type="submit" class="btn btn-primary table-btn">Actualizar</button>
                 <a class="btn btn-primary table-btn" asp-page="./ListaHistorias" class="btn-default">Volver Lista </a>
             </div>

@@ -156,6 +156,9 @@
     .button1{
         margin-left: 1000px;
     }
+    .btn{
+        margin-left: 50px;
+    }
     </style>
     <header>
         <h1>Lista Historias</h1>
@@ -190,10 +193,10 @@
                                     <!--Nombre columnas-->
                                     <td>@historia.FechaInicial</td>
                                     <td>
-                                        <a class="btn btn-primary table-btn" asp-page="./DetallesHistorias" asp-route-historiaId="@historia.Id" >
+                                        <a class="btn btn-info table-btn" asp-page="./DetallesHistorias" asp-route-historiaId="@historia.Id" >
                                             Detalles
                                         </a>
-                                    <td><a class="btn btn-primary table-btn" asp-page="./EditarHistorias" asp-route-historiaId="@historia.Id">
+                                    <td><a class="btn btn-info table-btn" asp-page="./EditarHistorias" asp-route-historiaId="@historia.Id">
                                             Editar
                                         </a>
                                     </td> 
@@ -201,8 +204,8 @@
                             }
                           </table>
                         <!--Boton primary que significa azul -->
-                        <button class="btn btn-primary float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Historia</button>
-                        <button class="btn btn-primary float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
+                        <button class="btn btn-info float-end" name="redirect" class="button1" onClick="redirect2()">Nueva Historia</button>
+                        <button class="btn btn-info float-start" name="redirect" class="button2" onClick="redirect()">Volver</button>
                     </div>
                 </div>
             </div>

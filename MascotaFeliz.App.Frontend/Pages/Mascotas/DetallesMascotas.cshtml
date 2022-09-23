@@ -220,6 +220,15 @@
             <div class="formgroup" id="name-form">
                 <label for="Raza">Raza: @Model.mascota.Raza </label> 
             </div>
+            <div class="formgroup" id="name-form">
+                <label for="Dueno">Dueño: @Model.mascota.Dueno.Nombres </label> 
+            </div>
+            <div class="formgroup" id="name-form">
+                <label for="Veterinario">Veterinario: @Model.mascota.Veterinario.Nombres </label> 
+            </div>
+            <div class="formgroup" id="name-form">
+                <label for="Historia">Historia: @Model.mascota.Historia.Id </label> 
+            </div>
             <a class="btn btn-primary table-btn" asp-page="./ListaMascotas"> Volver a lista </a>
         </form>
 
